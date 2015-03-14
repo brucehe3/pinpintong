@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  FirstViewController.m
 //  pinpintong
 //
 //  Created by Bruce He on 15-3-14.
 //  Copyright (c) 2015年 shanghai baiwei network technology. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "MixViewController.h"
 
-@interface SecondViewController ()
+@interface MixViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation MixViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

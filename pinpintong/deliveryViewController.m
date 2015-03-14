@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  SecondViewController.m
 //  pinpintong
 //
 //  Created by Bruce He on 15-3-14.
 //  Copyright (c) 2015年 shanghai baiwei network technology. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "DeliveryViewController.h"
 
-@interface FirstViewController ()
+@interface DeliveryViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation DeliveryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

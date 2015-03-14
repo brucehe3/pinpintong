@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  pinpintong
 //
 //  Created by Bruce He on 15-3-14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface MixViewController : UIViewController
 
 
 @end
