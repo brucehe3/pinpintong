@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */; };
 		324CE53E1AB46B3C000013FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE53D1AB46B3C000013FC /* main.m */; };
 		324CE5411AB46B3C000013FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5401AB46B3C000013FC /* AppDelegate.m */; };
-		324CE5441AB46B3C000013FC /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5431AB46B3C000013FC /* FirstViewController.m */; };
-		324CE5471AB46B3C000013FC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5461AB46B3C000013FC /* SecondViewController.m */; };
+		324CE5441AB46B3C000013FC /* MixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5431AB46B3C000013FC /* MixViewController.m */; };
+		324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5461AB46B3C000013FC /* deliveryViewController.m */; };
 		324CE54A1AB46B3C000013FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324CE5481AB46B3C000013FC /* Main.storyboard */; };
 		324CE54C1AB46B3C000013FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324CE54B1AB46B3C000013FC /* Images.xcassets */; };
 		324CE54F1AB46B3C000013FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 324CE54D1AB46B3C000013FC /* LaunchScreen.xib */; };
@@ -38,15 +39,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixTableViewController.h; path = Mix/MixTableViewController.h; sourceTree = "<group>"; };
+		323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixTableViewController.m; path = Mix/MixTableViewController.m; sourceTree = "<group>"; };
 		324CE5381AB46B3C000013FC /* pinpintong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinpintong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		324CE53C1AB46B3C000013FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324CE53D1AB46B3C000013FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		324CE53F1AB46B3C000013FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		324CE5401AB46B3C000013FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		324CE5421AB46B3C000013FC /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		324CE5431AB46B3C000013FC /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		324CE5451AB46B3C000013FC /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		324CE5461AB46B3C000013FC /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		324CE5421AB46B3C000013FC /* MixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixViewController.h; sourceTree = "<group>"; };
+		324CE5431AB46B3C000013FC /* MixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MixViewController.m; sourceTree = "<group>"; };
+		324CE5451AB46B3C000013FC /* deliveryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = deliveryViewController.h; sourceTree = "<group>"; };
+		324CE5461AB46B3C000013FC /* deliveryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = deliveryViewController.m; sourceTree = "<group>"; };
 		324CE5491AB46B3C000013FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		324CE54B1AB46B3C000013FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		324CE54E1AB46B3C000013FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -119,14 +122,16 @@
 				324CE5641AB46E78000013FC /* tool */,
 				324CE53F1AB46B3C000013FC /* AppDelegate.h */,
 				324CE5401AB46B3C000013FC /* AppDelegate.m */,
-				324CE5421AB46B3C000013FC /* FirstViewController.h */,
-				324CE5431AB46B3C000013FC /* FirstViewController.m */,
-				324CE5451AB46B3C000013FC /* SecondViewController.h */,
-				324CE5461AB46B3C000013FC /* SecondViewController.m */,
+				324CE5421AB46B3C000013FC /* MixViewController.h */,
+				324CE5431AB46B3C000013FC /* MixViewController.m */,
+				324CE5451AB46B3C000013FC /* deliveryViewController.h */,
+				324CE5461AB46B3C000013FC /* deliveryViewController.m */,
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
 				324CE54B1AB46B3C000013FC /* Images.xcassets */,
 				324CE54D1AB46B3C000013FC /* LaunchScreen.xib */,
 				324CE53B1AB46B3C000013FC /* Supporting Files */,
+				323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */,
+				323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */,
 			);
 			path = pinpintong;
 			sourceTree = "<group>";
@@ -297,10 +302,11 @@
 				324CE57F1AB46E8B000013FC /* AFNetworkReachabilityManager.m in Sources */,
 				324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */,
 				324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */,
-				324CE5471AB46B3C000013FC /* SecondViewController.m in Sources */,
+				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,
 				324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */,
+				323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */,
 				324CE5411AB46B3C000013FC /* AppDelegate.m in Sources */,
-				324CE5441AB46B3C000013FC /* FirstViewController.m in Sources */,
+				324CE5441AB46B3C000013FC /* MixViewController.m in Sources */,
 				324CE57D1AB46E8B000013FC /* AFHTTPRequestOperationManager.m in Sources */,
 				324CE5801AB46E8B000013FC /* AFSecurityPolicy.m in Sources */,
 				324CE5671AB46E78000013FC /* AFNetworkTool.m in Sources */,
@@ -496,6 +502,7 @@
 				324CE5601AB46B3C000013FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		324CE5611AB46B3C000013FC /* Build configuration list for PBXNativeTarget "pinpintongTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +511,7 @@
 				324CE5631AB46B3C000013FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
