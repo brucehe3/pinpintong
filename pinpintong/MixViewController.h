@@ -7,9 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MKHorizMenu.h"
 
-@interface MixViewController : UINavigationController
 
+@interface MixViewController :
+    UIViewController <
+    MKHorizMenuDataSource,
+    MKHorizMenuDelegate> {
+
+    MKHorizMenu *_horizMenu;
+    NSMutableArray *_items;
+    
+    //UILabel *_selectionItemLabel;
+}
+
+@property (nonatomic,retain) IBOutlet MKHorizMenu *horizMenu;
+@property (nonatomic,retain) NSMutableArray *items;
+
+@property (nonatomic, assign) IBOutlet UILabel *selectionItemLabel;
 
 @end
 
