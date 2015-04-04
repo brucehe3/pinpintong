@@ -13,18 +13,25 @@
 @interface MixViewController :
     UIViewController <
     MKHorizMenuDataSource,
-    MKHorizMenuDelegate> {
+    MKHorizMenuDelegate,
+    UITableViewDataSource,
+    UITableViewDelegate> {
 
     MKHorizMenu *_horizMenu;
     NSMutableArray *_items;
+    NSMutableArray *_itemsKeys;
+    UITableView *tableview;
+    
+    NSMutableArray *dataArray; //创建个数组来放我们的数据
     
     //UILabel *_selectionItemLabel;
 }
 
 @property (nonatomic,retain) IBOutlet MKHorizMenu *horizMenu;
 @property (nonatomic,retain) NSMutableArray *items;
-
-@property (nonatomic, assign) IBOutlet UILabel *selectionItemLabel;
+@property (nonatomic,retain) NSMutableArray *itemsKeys;
+@property (nonatomic,strong) UITableView *tableview;
+@property (nonatomic,retain) NSMutableArray *dataArray;
 
 @end
 

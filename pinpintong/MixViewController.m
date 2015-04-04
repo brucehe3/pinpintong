@@ -8,32 +8,90 @@
 
 #import "MixViewController.h"
 #import "AFNetworkTool.h"
+#import "BWCommon.h"
+#import "MixTableViewCell.h"
+#import "MixTableViewFrame.h"
 
+@interface MixViewController()
+
+@property (nonatomic, strong) NSArray *statusFrames;
+
+@end
 
 @implementation MixViewController
 
 @synthesize horizMenu = _horizMenu;
 @synthesize items = _items;
-@synthesize selectionItemLabel = _selectionItemLabel;
+@synthesize itemsKeys = _itemsKeys;
+@synthesize tableview;
+@synthesize dataArray;
+
 
 
 - (void)viewDidLoad {
     
-    NSString *url = @"http://trailer.s10.baiwei.org/default/default/api/getCategoryByType?type=lcl";
-    [AFNetworkTool JSONDataWithUrl:url success:^(id json) {
-        NSLog(@"%@", json);
+    NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
 
+    NSString *url =  [api_url stringByAppendingString:@"getCategoryByType?type=lcl"];
+
+    [AFNetworkTool JSONDataWithUrl:url success:^(id json) {
+        
+        
+        NSString *result = [json objectForKey:@"result"];
+        
+        if([result  isEqual:@"ok"])
+        {
+            
+            NSArray *data = [[NSArray alloc] init];
+            data = [json objectForKey:@"data"];
+            
+            NSMutableArray *itemsData = [[NSMutableArray alloc] init];
+            self.itemsKeys = [[NSMutableArray alloc] init];
+            
+            NSInteger dataCount = [data count];
+            
+            for(int i = 0 ; i < dataCount; i ++)
+            {
+                [itemsData addObject:[[data objectAtIndex:i] objectForKey:@"name"]];
+                [[self itemsKeys] addObject:[[data objectAtIndex:i] objectForKey:@"tid"]];
+            }
+            
+            self.items = itemsData;
+            [self.horizMenu reloadData];
+  
+            [self.horizMenu setSelectedIndex:0 animated:YES];
+    
+            NSLog(@"%@",itemsData);
+        }
+        
         // 提示:NSURLConnection异步方法回调,是在子线程
         // 得到回调之后,通常更新UI,是在主线程
         //        NSLog(@"%@", [NSThread currentThread]);
     } fail:^{
         NSLog(@"请求失败");
     }];
+
     
-    self.items = [NSMutableArray arrayWithObjects:@"拼箱",@"外派",@"International",@"Radio",@"Hollywood",@"Sports",@"Others",nil];
+    //指定委派的为自己
+    self.horizMenu.itemSelectedDelegate = self;
     
+    //初始化view
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    CGSize size = rect.size;
     
-    [self.horizMenu reloadData];
+    tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, size.width, size.height-150)];
+    tableview.delegate = self;
+    tableview.dataSource = self;
+    
+    //self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, size.width, size.height-150)];
+    //self.tableview.scrollEnabled = YES;
+    //self.tableview.bounces = YES;
+    //self.tableview.pagingEnabled = YES;
+    //self.tableview.delegate = self;
+    //self.tableview.userInteractionEnabled = YES;
+    //self.tableview.showsHorizontalScrollIndicator = NO;
+    //self.tableview.contentSize =CGSizeMake(size.width, size.height);
+    [[self view]addSubview:tableview];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -48,12 +106,12 @@
 {
     [super viewDidLoad];
     
-    self.selectionItemLabel = nil;
+    //self.selectionItemLabel = nil;
 }
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    [self.horizMenu setSelectedIndex:1 animated:YES];
+    
 }
 
 //- (void) dealloc
@@ -63,7 +121,7 @@
 
 - (UIImage *) selectedItemImageForMenu:(MKHorizMenu *) tabMenu
 {
-    return [[UIImage imageNamed:@"ButtonSelected"] stretchableImageWithLeftCapWidth:16 topCapHeight:0];
+    return [[UIImage imageNamed:@"button-selected"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
 }
 
 - (UIColor*) backgroundColorForMenu:(MKHorizMenu *)tabView
@@ -74,19 +132,104 @@
 
 - (int) numberOfItemsForMenu:(MKHorizMenu *)tabView
 {
+
     return [self.items count];
 }
 
 - (NSString*) horizMenu:(MKHorizMenu *)horizMenu titleForItemAtIndex:(NSUInteger)index
 {
+ 
     return [self.items objectAtIndex:index];
 }
 
-#pragma mark -
-#pragma mark HorizMenu Delegate
 - (void) horizMenu:(MKHorizMenu *)horizMenu itemSelectedAtIndex:(NSUInteger)index
 {
-    //self.selectionItemLabel.text = [self.items objectAtIndex:index];
+
+    NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
+    NSString *list_url = [api_url stringByAppendingString:@"GetLclDataByCid"];
+    
+    NSString *tid;
+    tid = [self.itemsKeys objectAtIndex:index];
+    list_url = [list_url stringByAppendingFormat:@"?cid=%@&page=1&page_size=10",tid];
+    
+    //NSLog(@"%@",list_url);
+    
+    //load data
+    [AFNetworkTool JSONDataWithUrl:list_url success:^(id json) {
+        
+        
+        NSString *result = [json objectForKey:@"result"];
+        
+        if([result  isEqual:@"ok"])
+        {
+            
+            //NSArray *data = [[NSArray alloc] init];
+            dataArray = [json objectForKey:@"data"];
+            self.statusFrames = nil;
+            
+            [tableview reloadData];
+            
+            //NSLog(@"%@",json);
+        }
+        else
+        {
+            NSLog(@"%@",[json objectForKey:@"msg"]);
+        }
+        
+    } fail:^{
+        NSLog(@"请求失败");
+    }];
+    
 }
 
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+{
+    return 1;
+}
+
+/* 这个函数是指定显示多少cells*/
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[self dataArray] count];//这个是指定加载数据的多少即显示多少个cell，如果这个地方弄错了会崩溃的哟
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    MixTableViewCell *cell = [MixTableViewCell cellWithTableView:tableview];
+    
+    cell.viewFrame = self.statusFrames[indexPath.row];
+    
+    //cell.textLabel.text = [[dataArray objectAtIndex:[indexPath row]] objectForKey:@"content"];
+    //cell.textLabel.text = [dataArray objectAtIndex:[indexPathrow]];  //通过 [indexPath row] 遍历数组
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // NSLog(@"heightForRowAtIndexPath");
+    // 取出对应航的frame模型
+    MixTableViewFrame *vf = self.statusFrames[indexPath.row];
+    NSLog(@"height = %f", vf.cellHeight);
+    return vf.cellHeight;
+}
+
+- (NSArray *)statusFrames
+{
+    if (_statusFrames == nil) {
+        
+        NSMutableArray *models = [NSMutableArray arrayWithCapacity:dataArray.count];
+        
+        for (NSDictionary *dict in dataArray) {
+            // 创建模型
+            MixTableViewFrame *vf = [[MixTableViewFrame alloc] init];
+            vf.data = dict;
+            [models addObject:vf];
+        }
+        self.statusFrames = [models copy];
+    }
+    return _statusFrames;
+}
 @end

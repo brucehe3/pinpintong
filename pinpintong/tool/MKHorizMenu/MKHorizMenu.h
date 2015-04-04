@@ -41,8 +41,8 @@
     int _itemCount;
     UIImage *_selectedImage;
     NSMutableArray *_titles;
-    //id <MKHorizMenuDataSource> dataSource;
-    //id <MKHorizMenuDelegate> itemSelectedDelegate;
+    id <MKHorizMenuDataSource> dataSource;
+    __unsafe_unretained id <MKHorizMenuDelegate> itemSelectedDelegate;
 }
 
 @property (nonatomic, retain) NSMutableArray *titles;

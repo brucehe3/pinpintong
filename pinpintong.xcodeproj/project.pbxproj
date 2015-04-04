@@ -234,6 +234,11 @@
 		324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5771AB46E8B000013FC /* AFURLRequestSerialization.m */; };
 		324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5791AB46E8B000013FC /* AFURLResponseSerialization.m */; };
 		324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE57B1AB46E8B000013FC /* AFURLSessionManager.m */; };
+		32FF10B21ACFC8D100EB405C /* button-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B11ACFC8D100EB405C /* button-selected.png */; };
+		32FF10B41ACFDE0F00EB405C /* baseinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B31ACFDE0F00EB405C /* baseinfo.plist */; };
+		32FF10B71ACFDF2100EB405C /* BWCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF10B61ACFDF2100EB405C /* BWCommon.m */; };
+		32FF10BD1AD0094100EB405C /* MixTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF10BC1AD0094100EB405C /* MixTableViewCell.m */; };
+		32FF10C01AD0189700EB405C /* MixTableViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF10BF1AD0189700EB405C /* MixTableViewFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -494,6 +499,14 @@
 		324CE5791AB46E8B000013FC /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		324CE57A1AB46E8B000013FC /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		324CE57B1AB46E8B000013FC /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		32FF10B11ACFC8D100EB405C /* button-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-selected.png"; sourceTree = "<group>"; };
+		32FF10B31ACFDE0F00EB405C /* baseinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = baseinfo.plist; sourceTree = "<group>"; };
+		32FF10B51ACFDEEF00EB405C /* BWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommon.h; sourceTree = "<group>"; };
+		32FF10B61ACFDF2100EB405C /* BWCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWCommon.m; sourceTree = "<group>"; };
+		32FF10BB1AD0094100EB405C /* MixTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixTableViewCell.h; sourceTree = "<group>"; };
+		32FF10BC1AD0094100EB405C /* MixTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixTableViewCell.m; sourceTree = "<group>"; };
+		32FF10BE1AD0187F00EB405C /* MixTableViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixTableViewFrame.h; sourceTree = "<group>"; };
+		32FF10BF1AD0189700EB405C /* MixTableViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixTableViewFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,6 +548,7 @@
 				322113971AB55B3100244EDE /* appicon@2x.png */,
 				322113981AB55B3100244EDE /* assitance.png */,
 				322113991AB55B3100244EDE /* bar_loading.png */,
+				32FF10B11ACFC8D100EB405C /* button-selected.png */,
 				3221139A1AB55B3100244EDE /* bg_add_image.png */,
 				3221139B1AB55B3100244EDE /* bg_audit_used.png */,
 				3221139C1AB55B3100244EDE /* bg_auditing.png */,
@@ -776,6 +790,8 @@
 				324CE5401AB46B3C000013FC /* AppDelegate.m */,
 				324CE5421AB46B3C000013FC /* MixViewController.h */,
 				324CE5431AB46B3C000013FC /* MixViewController.m */,
+				32FF10BB1AD0094100EB405C /* MixTableViewCell.h */,
+				32FF10BC1AD0094100EB405C /* MixTableViewCell.m */,
 				324CE5451AB46B3C000013FC /* deliveryViewController.h */,
 				324CE5461AB46B3C000013FC /* deliveryViewController.m */,
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
@@ -785,6 +801,8 @@
 				324CE53B1AB46B3C000013FC /* Supporting Files */,
 				323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */,
 				323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */,
+				32FF10BE1AD0187F00EB405C /* MixTableViewFrame.h */,
+				32FF10BF1AD0189700EB405C /* MixTableViewFrame.m */,
 			);
 			path = pinpintong;
 			sourceTree = "<group>";
@@ -794,6 +812,7 @@
 			children = (
 				324CE53C1AB46B3C000013FC /* Info.plist */,
 				324CE53D1AB46B3C000013FC /* main.m */,
+				32FF10B31ACFDE0F00EB405C /* baseinfo.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -821,6 +840,8 @@
 				3221151D1AB5692D00244EDE /* MKHorizMenu */,
 				324CE5651AB46E78000013FC /* AFNetworkTool.h */,
 				324CE5661AB46E78000013FC /* AFNetworkTool.m */,
+				32FF10B51ACFDEEF00EB405C /* BWCommon.h */,
+				32FF10B61ACFDF2100EB405C /* BWCommon.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -1019,6 +1040,7 @@
 				322114E71AB55B3100244EDE /* item_line.png in Resources */,
 				322114661AB55B3100244EDE /* bg_blue_noto.9.png in Resources */,
 				322114F81AB55B3100244EDE /* publicloading.png in Resources */,
+				32FF10B21ACFC8D100EB405C /* button-selected.png in Resources */,
 				322114C61AB55B3100244EDE /* ed_input_focus.9.png in Resources */,
 				3221150F1AB55B3100244EDE /* toggle_button_on.png in Resources */,
 				322114C11AB55B3100244EDE /* Default.png in Resources */,
@@ -1038,6 +1060,7 @@
 				322114F91AB55B3100244EDE /* publish.png in Resources */,
 				3221145F1AB55B3100244EDE /* appicon.png in Resources */,
 				322115091AB55B3100244EDE /* switch_off.png in Resources */,
+				32FF10B41ACFDE0F00EB405C /* baseinfo.plist in Resources */,
 				322114E11AB55B3100244EDE /* icon_selfinfo_sel.png in Resources */,
 				322114881AB55B3100244EDE /* button_call_icon.png in Resources */,
 				322114A11AB55B3100244EDE /* button_scan_pressed.png in Resources */,
@@ -1162,14 +1185,17 @@
 				324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */,
 				324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */,
 				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,
+				32FF10C01AD0189700EB405C /* MixTableViewFrame.m in Sources */,
 				324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */,
 				323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */,
+				32FF10B71ACFDF2100EB405C /* BWCommon.m in Sources */,
 				324CE5411AB46B3C000013FC /* AppDelegate.m in Sources */,
 				324CE5441AB46B3C000013FC /* MixViewController.m in Sources */,
 				324CE57D1AB46E8B000013FC /* AFHTTPRequestOperationManager.m in Sources */,
 				324CE5801AB46E8B000013FC /* AFSecurityPolicy.m in Sources */,
 				324CE5671AB46E78000013FC /* AFNetworkTool.m in Sources */,
 				324CE53E1AB46B3C000013FC /* main.m in Sources */,
+				32FF10BD1AD0094100EB405C /* MixTableViewCell.m in Sources */,
 				324CE57E1AB46E8B000013FC /* AFHTTPSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

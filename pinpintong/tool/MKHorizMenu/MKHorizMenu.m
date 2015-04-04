@@ -31,7 +31,7 @@
 
 -(void) awakeFromNib
 {
-    self.bounces = YES;
+    self.bounces = NO;
     self.scrollEnabled = YES;
     self.alwaysBounceHorizontal = YES;
     self.alwaysBounceVertical = NO;
@@ -58,22 +58,26 @@
         UIButton *customButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [customButton setTitle:title forState:UIControlStateNormal];
         customButton.titleLabel.font = buttonFont;
+        [customButton setTitleColor:[UIColor colorWithRed:12/255.0 green:129/255.0 blue:245/255.0 alpha:1] forState:UIControlStateNormal];
         
         [customButton setBackgroundImage:self.selectedImage forState:UIControlStateSelected];
+        [customButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         
         customButton.tag = tag++;
         [customButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         int buttonWidth = [title sizeWithFont:customButton.titleLabel.font
-                            constrainedToSize:CGSizeMake(150, 28) 
+                            constrainedToSize:CGSizeMake(150, 28)
                                 lineBreakMode:UILineBreakModeClip].width;
         
+        
         customButton.frame = CGRectMake(xPos, 7, buttonWidth + buttonPadding, 28);
+    
         xPos += buttonWidth;
         xPos += buttonPadding;
         [self addSubview:customButton];        
     }
-    self.contentSize = CGSizeMake(xPos, 28);
+    self.contentSize = CGSizeMake(xPos, 0);
     [self layoutSubviews];  
 }
 
