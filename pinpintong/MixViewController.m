@@ -94,6 +94,8 @@
     [[self view]addSubview:tableview];
     
     [super viewDidLoad];
+    
+    [self getCategoryData];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

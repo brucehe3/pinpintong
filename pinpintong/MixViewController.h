@@ -27,11 +27,16 @@
     //UILabel *_selectionItemLabel;
 }
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (nonatomic,retain) IBOutlet MKHorizMenu *horizMenu;
 @property (nonatomic,retain) NSMutableArray *items;
 @property (nonatomic,retain) NSMutableArray *itemsKeys;
 @property (nonatomic,strong) UITableView *tableview;
 @property (nonatomic,retain) NSMutableArray *dataArray;
+
+@property (nonatomic, retain) NSMutableArray *categories;
+@property (nonatomic, retain) NSMutableArray *dataList;
 
 @end
 

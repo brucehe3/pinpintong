@@ -216,6 +216,8 @@
 		3221152A1AB574DD00244EDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322115291AB574DD00244EDE /* UIKit.framework */; };
 		3221152C1AB574FE00244EDE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3221152B1AB574FE00244EDE /* CoreGraphics.framework */; };
 		323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */; };
+		323C3FBD1AB5A864007A7DE1 /* common.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FBC1AB5A864007A7DE1 /* common.m */; };
+		323C3FC31AB5CE57007A7DE1 /* MixUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FC21AB5CE57007A7DE1 /* MixUITableView.m */; };
 		324CE53E1AB46B3C000013FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE53D1AB46B3C000013FC /* main.m */; };
 		324CE5411AB46B3C000013FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5401AB46B3C000013FC /* AppDelegate.m */; };
 		324CE5441AB46B3C000013FC /* MixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5431AB46B3C000013FC /* MixViewController.m */; };
@@ -463,6 +465,10 @@
 		3221152B1AB574FE00244EDE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixTableViewController.h; path = Mix/MixTableViewController.h; sourceTree = "<group>"; };
 		323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixTableViewController.m; path = Mix/MixTableViewController.m; sourceTree = "<group>"; };
+		323C3FBB1AB5A796007A7DE1 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		323C3FBC1AB5A864007A7DE1 /* common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = common.m; sourceTree = "<group>"; };
+		323C3FC11AB5CE57007A7DE1 /* MixUITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixUITableView.h; sourceTree = "<group>"; };
+		323C3FC21AB5CE57007A7DE1 /* MixUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixUITableView.m; sourceTree = "<group>"; };
 		324CE5381AB46B3C000013FC /* pinpintong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinpintong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		324CE53C1AB46B3C000013FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324CE53D1AB46B3C000013FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -762,6 +768,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		323C3FBA1AB5A796007A7DE1 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				323C3FBB1AB5A796007A7DE1 /* common.h */,
+				323C3FBC1AB5A864007A7DE1 /* common.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		324CE52F1AB46B3C000013FC = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +799,7 @@
 		324CE53A1AB46B3C000013FC /* pinpintong */ = {
 			isa = PBXGroup;
 			children = (
+				323C3FBA1AB5A796007A7DE1 /* lib */,
 				324CE5681AB46E8B000013FC /* AFNetworking */,
 				324CE5641AB46E78000013FC /* tool */,
 				324CE53F1AB46B3C000013FC /* AppDelegate.h */,
@@ -796,6 +812,8 @@
 				324CE5461AB46B3C000013FC /* deliveryViewController.m */,
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
 				324CE54B1AB46B3C000013FC /* Images.xcassets */,
+				323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */,
+				323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */,
 				3221138A1AB55B3100244EDE /* images */,
 				324CE54D1AB46B3C000013FC /* LaunchScreen.xib */,
 				324CE53B1AB46B3C000013FC /* Supporting Files */,
@@ -1193,6 +1211,8 @@
 				324CE5441AB46B3C000013FC /* MixViewController.m in Sources */,
 				324CE57D1AB46E8B000013FC /* AFHTTPRequestOperationManager.m in Sources */,
 				324CE5801AB46E8B000013FC /* AFSecurityPolicy.m in Sources */,
+				323C3FBD1AB5A864007A7DE1 /* common.m in Sources */,
+				323C3FC31AB5CE57007A7DE1 /* MixUITableView.m in Sources */,
 				324CE5671AB46E78000013FC /* AFNetworkTool.m in Sources */,
 				324CE53E1AB46B3C000013FC /* main.m in Sources */,
 				32FF10BD1AD0094100EB405C /* MixTableViewCell.m in Sources */,
