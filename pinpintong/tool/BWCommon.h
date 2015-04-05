@@ -20,4 +20,5 @@
 +(float) getSystemVersion;
 +(NSString *) getBaseInfo:(NSString *) key;
 
+
 @end

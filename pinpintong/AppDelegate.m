@@ -17,6 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    BOOL isLoggedIn = false;
+    
+    NSString * segueId = isLoggedIn ? @"MainIdentifier" : @"LoginIdentifier";
+    
+    self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:segueId];
+    
     return YES;
 }
 
