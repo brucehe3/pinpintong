@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MKHorizMenu.h"
+#import "DetailDelegate.h"
 
 
 @interface MixViewController :
@@ -25,18 +26,17 @@
     NSMutableArray *dataArray; //创建个数组来放我们的数据
     
     //UILabel *_selectionItemLabel;
+        
+    __unsafe_unretained id<DetailDelegate> delegate;
 }
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic,retain) IBOutlet MKHorizMenu *horizMenu;
 @property (nonatomic,retain) NSMutableArray *items;
 @property (nonatomic,retain) NSMutableArray *itemsKeys;
 @property (nonatomic,strong) UITableView *tableview;
 @property (nonatomic,retain) NSMutableArray *dataArray;
+@property (nonatomic,assign) id<DetailDelegate> delegate;
 
-@property (nonatomic, retain) NSMutableArray *categories;
-@property (nonatomic, retain) NSMutableArray *dataList;
 
 @end
 

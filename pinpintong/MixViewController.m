@@ -11,6 +11,7 @@
 #import "BWCommon.h"
 #import "MixTableViewCell.h"
 #import "MixTableViewFrame.h"
+#import "MixDetailViewController.h"
 
 @interface MixViewController()
 
@@ -25,7 +26,7 @@
 @synthesize itemsKeys = _itemsKeys;
 @synthesize tableview;
 @synthesize dataArray;
-
+@synthesize delegate;
 
 
 - (void)viewDidLoad {
@@ -95,7 +96,6 @@
     
     [super viewDidLoad];
     
-    [self getCategoryData];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -233,5 +233,21 @@
         self.statusFrames = [models copy];
     }
     return _statusFrames;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *detail_id;
+    detail_id = [[dataArray objectAtIndex:[indexPath row]] objectForKey:@"id"];
+    
+    MixDetailViewController *detailViewController = [[MixDetailViewController alloc] init];
+    
+    self.delegate = detailViewController;
+
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    [self.delegate setValue:detail_id];
+
 }
 @end
