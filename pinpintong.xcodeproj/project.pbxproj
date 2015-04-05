@@ -234,6 +234,7 @@
 		324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5771AB46E8B000013FC /* AFURLRequestSerialization.m */; };
 		324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5791AB46E8B000013FC /* AFURLResponseSerialization.m */; };
 		324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE57B1AB46E8B000013FC /* AFURLSessionManager.m */; };
+		32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */; };
 		32FF10B21ACFC8D100EB405C /* button-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B11ACFC8D100EB405C /* button-selected.png */; };
 		32FF10B41ACFDE0F00EB405C /* baseinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B31ACFDE0F00EB405C /* baseinfo.plist */; };
 		32FF10B71ACFDF2100EB405C /* BWCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF10B61ACFDF2100EB405C /* BWCommon.m */; };
@@ -499,6 +500,8 @@
 		324CE5791AB46E8B000013FC /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		324CE57A1AB46E8B000013FC /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		324CE57B1AB46E8B000013FC /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		32FF10B11ACFC8D100EB405C /* button-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-selected.png"; sourceTree = "<group>"; };
 		32FF10B31ACFDE0F00EB405C /* baseinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = baseinfo.plist; sourceTree = "<group>"; };
 		32FF10B51ACFDEEF00EB405C /* BWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommon.h; sourceTree = "<group>"; };
@@ -795,6 +798,8 @@
 				324CE5451AB46B3C000013FC /* deliveryViewController.h */,
 				324CE5461AB46B3C000013FC /* deliveryViewController.m */,
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
+				32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */,
+				32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */,
 				324CE54B1AB46B3C000013FC /* Images.xcassets */,
 				3221138A1AB55B3100244EDE /* images */,
 				324CE54D1AB46B3C000013FC /* LaunchScreen.xib */,
@@ -1182,6 +1187,7 @@
 				322115261AB5692D00244EDE /* MKHorizMenu.m in Sources */,
 				324CE57C1AB46E8B000013FC /* AFHTTPRequestOperation.m in Sources */,
 				324CE57F1AB46E8B000013FC /* AFNetworkReachabilityManager.m in Sources */,
+				32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */,
 				324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */,
 				324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */,
 				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,
