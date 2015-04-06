@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
 @interface LoginViewController : UIViewController
-<UITextFieldDelegate>
+<UITextFieldDelegate,
+UIGestureRecognizerDelegate,
+MBProgressHUDDelegate>
 
 
 @end

@@ -20,5 +20,8 @@
 +(float) getSystemVersion;
 +(NSString *) getBaseInfo:(NSString *) key;
 
++(id) getUserInfo:(NSString *) key;
+
++(BOOL) isLoggedIn;
 
 @end

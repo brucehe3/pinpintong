@@ -26,4 +26,16 @@
     return value;
 }
 
++(id) getUserInfo:(NSString *)key
+{
+    NSUserDefaults *udata = [NSUserDefaults standardUserDefaults];
+    
+    return [udata objectForKey:key];
+}
+
++(BOOL) isLoggedIn{
+    
+    return [self getUserInfo:@"username"] != nil;
+}
+
 @end

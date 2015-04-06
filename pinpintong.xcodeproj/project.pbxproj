@@ -235,7 +235,10 @@
 		324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5771AB46E8B000013FC /* AFURLRequestSerialization.m */; };
 		324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5791AB46E8B000013FC /* AFURLResponseSerialization.m */; };
 		324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE57B1AB46E8B000013FC /* AFURLSessionManager.m */; };
+		325B2C731AD1806000DA000F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 325B2C721AD1806000DA000F /* RegisterViewController.m */; };
+		325B2C761AD1AB9000DA000F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 325B2C751AD1AB9000DA000F /* MBProgressHUD.m */; };
 		32839D4E1AD03F2A003C67D3 /* MixDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */; };
+		32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */; };
 		32FF10B21ACFC8D100EB405C /* button-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B11ACFC8D100EB405C /* button-selected.png */; };
 		32FF10B41ACFDE0F00EB405C /* baseinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B31ACFDE0F00EB405C /* baseinfo.plist */; };
 		32FF10B71ACFDF2100EB405C /* BWCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF10B61ACFDF2100EB405C /* BWCommon.m */; };
@@ -502,9 +505,15 @@
 		324CE5791AB46E8B000013FC /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		324CE57A1AB46E8B000013FC /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		324CE57B1AB46E8B000013FC /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		325B2C711AD1806000DA000F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		325B2C721AD1806000DA000F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		325B2C741AD1AB8F00DA000F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		325B2C751AD1AB9000DA000F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		32839D4C1AD03F2A003C67D3 /* MixDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixDetailViewController.h; sourceTree = "<group>"; };
 		32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixDetailViewController.m; sourceTree = "<group>"; };
 		32839D4F1AD04A33003C67D3 /* DetailDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDelegate.h; sourceTree = "<group>"; };
+		32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		32FF10B11ACFC8D100EB405C /* button-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-selected.png"; sourceTree = "<group>"; };
 		32FF10B31ACFDE0F00EB405C /* baseinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = baseinfo.plist; sourceTree = "<group>"; };
 		32FF10B51ACFDEEF00EB405C /* BWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommon.h; sourceTree = "<group>"; };
@@ -803,6 +812,8 @@
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
 				32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */,
 				32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */,
+				325B2C711AD1806000DA000F /* RegisterViewController.h */,
+				325B2C721AD1806000DA000F /* RegisterViewController.m */,
 				324CE54B1AB46B3C000013FC /* Images.xcassets */,
 				3221138A1AB55B3100244EDE /* images */,
 				324CE54D1AB46B3C000013FC /* LaunchScreen.xib */,
@@ -848,6 +859,8 @@
 		324CE5641AB46E78000013FC /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				325B2C741AD1AB8F00DA000F /* MBProgressHUD.h */,
+				325B2C751AD1AB9000DA000F /* MBProgressHUD.m */,
 				3221151D1AB5692D00244EDE /* MKHorizMenu */,
 				324CE5651AB46E78000013FC /* AFNetworkTool.h */,
 				324CE5661AB46E78000013FC /* AFNetworkTool.m */,
@@ -1196,10 +1209,12 @@
 				32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */,
 				324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */,
 				324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */,
+				325B2C761AD1AB9000DA000F /* MBProgressHUD.m in Sources */,
 				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,
 				32FF10C01AD0189700EB405C /* MixTableViewFrame.m in Sources */,
 				324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */,
 				323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */,
+				325B2C731AD1806000DA000F /* RegisterViewController.m in Sources */,
 				32FF10B71ACFDF2100EB405C /* BWCommon.m in Sources */,
 				324CE5411AB46B3C000013FC /* AppDelegate.m in Sources */,
 				324CE5441AB46B3C000013FC /* MixViewController.m in Sources */,
