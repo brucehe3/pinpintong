@@ -24,4 +24,5 @@
 
 +(BOOL) isLoggedIn;
 
++ (CGSize)sizeWithString:(NSString *)str font:(UIFont *)font maxSize:(CGSize)maxSize;
 @end

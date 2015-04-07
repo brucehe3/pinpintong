@@ -12,10 +12,15 @@
 #import "MixTableViewCell.h"
 #import "MixTableViewFrame.h"
 #import "MixDetailViewController.h"
+#import "MJRefresh.h"
+
+
 
 @interface MixViewController()
 
 @property (nonatomic, strong) NSArray *statusFrames;
+@property (nonatomic, assign) NSUInteger tid;
+@property (nonatomic,assign) NSUInteger gpage;
 
 @end
 
@@ -94,15 +99,87 @@
     //self.tableview.contentSize =CGSizeMake(size.width, size.height);
     [[self view]addSubview:tableview];
     
+
+    [self.tableview addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
+    
+    [self.tableview addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) headerRefreshing{
+    
+    self.gpage = 1;
+    [self refreshingData:1 callback:^{
+        [self.tableview.header endRefreshing];
+    }];
+    
+}
+
+- (void )footerRereshing{
+
+    [self refreshingData:++self.gpage callback:^{
+        [self.tableview.footer endRefreshing];
+    }];
+}
+
+- (void) refreshingData:(NSUInteger)page callback:(void(^)()) callback
+{
+    NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
+    NSString *list_url = [api_url stringByAppendingString:@"GetLclDataByCid"];
+    list_url = [list_url stringByAppendingFormat:@"?cid=%d&page=%d&page_size=10",self.tid,page];
+    
+    NSLog(@"%@",list_url);
+    //load data
+    [AFNetworkTool JSONDataWithUrl:list_url success:^(id json) {
+        
+        
+        NSString *result = [json objectForKey:@"result"];
+        
+        if([result  isEqual:@"ok"])
+        {
+            
+            //NSArray *data = [[NSArray alloc] init];
+            if(page == 1)
+            {
+                dataArray = [[json objectForKey:@"data"] mutableCopy];
+            }
+            else
+            {
+                [dataArray addObjectsFromArray:[[json objectForKey:@"data"] mutableCopy]];
+                
+            }
+
+            self.statusFrames = nil;
+            
+            [tableview reloadData];
+            
+            if(callback){
+                callback();
+            }
+            
+            //NSLog(@"%@",json);
+        }
+        else
+        {
+            NSLog(@"%@",[json objectForKey:@"msg"]);
+        }
+        
+    } fail:^{
+        NSLog(@"请求失败");
+    }];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (void)viewDidUnload
 {
@@ -146,42 +223,10 @@
 
 - (void) horizMenu:(MKHorizMenu *)horizMenu itemSelectedAtIndex:(NSUInteger)index
 {
-
-    NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
-    NSString *list_url = [api_url stringByAppendingString:@"GetLclDataByCid"];
+    self.tid = [[self.itemsKeys objectAtIndex:index] integerValue];
     
-    NSString *tid;
-    tid = [self.itemsKeys objectAtIndex:index];
-    list_url = [list_url stringByAppendingFormat:@"?cid=%@&page=1&page_size=10",tid];
-    
-    //NSLog(@"%@",list_url);
-    
-    //load data
-    [AFNetworkTool JSONDataWithUrl:list_url success:^(id json) {
-        
-        
-        NSString *result = [json objectForKey:@"result"];
-        
-        if([result  isEqual:@"ok"])
-        {
-            
-            //NSArray *data = [[NSArray alloc] init];
-            dataArray = [json objectForKey:@"data"];
-            self.statusFrames = nil;
-            
-            [tableview reloadData];
-            
-            //NSLog(@"%@",json);
-        }
-        else
-        {
-            NSLog(@"%@",[json objectForKey:@"msg"]);
-        }
-        
-    } fail:^{
-        NSLog(@"请求失败");
-    }];
-    
+    self.gpage = 1;
+    [self refreshingData:1 callback:nil];
 }
 
 
@@ -238,11 +283,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *detail_id;
-    detail_id = [[dataArray objectAtIndex:[indexPath row]] objectForKey:@"id"];
+    NSUInteger detail_id;
+    detail_id = [[[dataArray objectAtIndex:[indexPath row]] objectForKey:@"id"] integerValue];
     
     MixDetailViewController *detailViewController = [[MixDetailViewController alloc] init];
     
+    detailViewController.hidesBottomBarWhenPushed = YES;
     self.delegate = detailViewController;
 
     [self.navigationController pushViewController:detailViewController animated:YES];

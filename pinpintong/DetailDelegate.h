@@ -10,6 +10,6 @@
 
 @protocol DetailDelegate <NSObject>
 
--(void) setValue: (NSString *) detailValue;
+-(void) setValue: (NSUInteger) detailValue;
 
 @end

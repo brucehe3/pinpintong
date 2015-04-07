@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "AFNetworkTool.h"
 #import "BWCommon.h"
 
 @interface LoginViewController ()
@@ -16,8 +17,6 @@
 
 @implementation LoginViewController
 
-UITextField *username;
-UITextField *password;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,25 +35,25 @@ UITextField *password;
     [header addSubview:title];
     [self.view addSubview:header];
     
-    username = [[UITextField alloc] initWithFrame:CGRectMake(10, 200, 300, 40)];
-    username.borderStyle = UITextBorderStyleRoundedRect;
-    [username.layer setCornerRadius:15.0];
-    username.backgroundColor = [UIColor whiteColor];
-    username.textAlignment = NSTextAlignmentCenter;
-    username.placeholder = @"请输入账号";
+    self.username = [[UITextField alloc] initWithFrame:CGRectMake(10, 200, 300, 40)];
+    self.username.borderStyle = UITextBorderStyleRoundedRect;
+    [self.username.layer setCornerRadius:15.0];
+    self.username.backgroundColor = [UIColor whiteColor];
+    self.username.textAlignment = NSTextAlignmentCenter;
+    self.username.placeholder = @"请输入账号";
     
-    username.delegate = self;
+    self.username.delegate = self;
     
-    [self.view addSubview:username];
+    [self.view addSubview:self.username];
     
-    password = [[UITextField alloc] initWithFrame:CGRectMake(10, 250, 300, 40)];
-    password.borderStyle=UITextBorderStyleRoundedRect;
-    [password.layer setCornerRadius:15.0];
-    password.backgroundColor = [UIColor whiteColor];
-    password.textAlignment = NSTextAlignmentCenter;
-    password.placeholder = @"请输入密码";
-    password.secureTextEntry =true;
-    [self.view addSubview:password];
+    self.password = [[UITextField alloc] initWithFrame:CGRectMake(10, 250, 300, 40)];
+    self.password.borderStyle=UITextBorderStyleRoundedRect;
+    [self.password.layer setCornerRadius:15.0];
+    self.password.backgroundColor = [UIColor whiteColor];
+    self.password.textAlignment = NSTextAlignmentCenter;
+    self.password.placeholder = @"请输入密码";
+    self.password.secureTextEntry =true;
+    [self.view addSubview:self.password];
     
     
     UIButton *btnLogin = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -107,17 +106,77 @@ UITextField *password;
 // tap dismiss keyboard
 -(void)dismissKeyboard {
     [self.view endEditing:YES];
-    [password resignFirstResponder];
+    [self.password resignFirstResponder];
 }
 
 
 - (void) loginTouched:(id)sender
 {
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.delegate=self;
+    NSString *usernameValue = self.username.text;
+    NSString *passwordValue = self.password.text;
+
     
-    NSLog(@"login touched");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    
+
+    if([usernameValue isEqualToString:@""])
+    {
+        [alert setMessage:@"用户名未输入"];
+        [alert show];
+        return;
+    }
+    
+    if([passwordValue isEqualToString:@""])
+    {
+        [alert setMessage:@"密码未输入"];
+        [alert show];
+        return;
+    }
+
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.delegate=self;
+    hud.labelText = @"登录中..";
+    
+    NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
+    
+    NSString *url =  [api_url stringByAppendingString:@"checkLogin"];
+    
+    NSDictionary *postData = @{@"username":usernameValue,@"password":passwordValue};
+    
+    [AFNetworkTool postJSONWithUrl:url parameters:postData success:^(id responseObject) {
+        
+        [hud removeFromSuperview];
+        
+        NSString *result = [responseObject objectForKey:@"result"];
+        
+        NSString *msg = [responseObject objectForKey:@"msg"];
+        if([result  isEqual:@"ok"])
+        {
+            NSDictionary *data = [responseObject objectForKey:@"userinfo"];
+            
+            NSUserDefaults *udata = [NSUserDefaults standardUserDefaults];
+            [udata setObject:[data objectForKey:@"uid"] forKey:@"uid"];
+            [udata setObject:[data objectForKey:@"username"] forKey:@"username"];
+            [udata synchronize];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            
+            id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainIdentifier"];
+            
+            [self presentViewController:mainViewController animated:YES completion:^{}];
+            //NSLog(@"%@",udata);
+        }
+        else
+        {
+            [alert setMessage:msg];
+            [alert show];
+        }
+        NSLog(@"%@",msg);
+    } fail:^{
+        [hud removeFromSuperview];
+        NSLog(@"请求失败");
+    }];
 }
 
 - (void) registerTouched:(id)sender
@@ -144,8 +203,8 @@ UITextField *password;
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    [username resignFirstResponder];
-    [password resignFirstResponder];
+    [self.username resignFirstResponder];
+    [self.password resignFirstResponder];
     return YES;
 }
 

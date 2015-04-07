@@ -13,6 +13,11 @@
 <UITextFieldDelegate,
 UIGestureRecognizerDelegate,
 MBProgressHUDDelegate>
+{
+    MBProgressHUD * hud;
+}
 
+@property (nonatomic,strong) UITextField *username;
+@property (nonatomic,strong) UITextField *password;
 
 @end
