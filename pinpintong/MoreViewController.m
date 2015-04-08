@@ -38,7 +38,7 @@
     CGRect rect = [[UIScreen mainScreen] bounds];
     CGSize size = rect.size;
 
-    UIScrollView *sclView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    UIScrollView *sclView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height-46.0f)];
     sclView.backgroundColor = [UIColor colorWithRed:200/255.5f green:200/255.5f blue:200/255.5f alpha:1];
     sclView.scrollEnabled = YES;
     sclView.contentSize = CGSizeMake(size.width, size.height-110);

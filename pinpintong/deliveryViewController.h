@@ -10,6 +10,7 @@
 
 @interface DeliveryViewController : UIViewController
 
+@property (nonatomic,strong) UITextField *keyword;
 
 @end
 

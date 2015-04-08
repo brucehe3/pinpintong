@@ -212,7 +212,7 @@
 - (int) numberOfItemsForMenu:(MKHorizMenu *)tabView
 {
 
-    return [self.items count];
+    return (int)[self.items count];
 }
 
 - (NSString*) horizMenu:(MKHorizMenu *)horizMenu titleForItemAtIndex:(NSUInteger)index

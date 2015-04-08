@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		321BFB4C1AD54234003B9271 /* MixUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321BFB4B1AD54234003B9271 /* MixUITableView.m */; };
 		322114541AB55B3100244EDE /* aio_face_tab_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138B1AB55B3100244EDE /* aio_face_tab_line.png */; };
 		322114551AB55B3100244EDE /* alert_dialog_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138C1AB55B3100244EDE /* alert_dialog_icon.png */; };
 		322114561AB55B3100244EDE /* analysis.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138D1AB55B3100244EDE /* analysis.png */; };
@@ -254,6 +253,7 @@
 		325B2CC51AD426AE00DA000F /* BwUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 325B2CC41AD426AE00DA000F /* BwUIButton.m */; };
 		32839D4E1AD03F2A003C67D3 /* MixDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */; };
 		32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */; };
+		32BAB5FC1AD579780029FED4 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAB5FB1AD579780029FED4 /* DiscoveryViewController.m */; };
 		32FF10B21ACFC8D100EB405C /* button-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B11ACFC8D100EB405C /* button-selected.png */; };
 		32FF10B41ACFDE0F00EB405C /* baseinfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32FF10B31ACFDE0F00EB405C /* baseinfo.plist */; };
 		32FF10B71ACFDF2100EB405C /* BWCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF10B61ACFDF2100EB405C /* BWCommon.m */; };
@@ -272,7 +272,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		321BFB4B1AD54234003B9271 /* MixUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixUITableView.m; path = pinpintong/MixUITableView.m; sourceTree = "<group>"; };
 		3221138B1AB55B3100244EDE /* aio_face_tab_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aio_face_tab_line.png; sourceTree = "<group>"; };
 		3221138C1AB55B3100244EDE /* alert_dialog_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert_dialog_icon.png; sourceTree = "<group>"; };
 		3221138D1AB55B3100244EDE /* analysis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analysis.png; sourceTree = "<group>"; };
@@ -558,6 +557,8 @@
 		32839D4F1AD04A33003C67D3 /* DetailDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDelegate.h; sourceTree = "<group>"; };
 		32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		32BAB5FA1AD579780029FED4 /* DiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryViewController.h; sourceTree = "<group>"; };
+		32BAB5FB1AD579780029FED4 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
 		32FF10B11ACFC8D100EB405C /* button-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-selected.png"; sourceTree = "<group>"; };
 		32FF10B31ACFDE0F00EB405C /* baseinfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = baseinfo.plist; sourceTree = "<group>"; };
 		32FF10B51ACFDEEF00EB405C /* BWCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWCommon.h; sourceTree = "<group>"; };
@@ -824,7 +825,6 @@
 		324CE52F1AB46B3C000013FC = {
 			isa = PBXGroup;
 			children = (
-				321BFB4B1AD54234003B9271 /* MixUITableView.m */,
 				3221152D1AB5750E00244EDE /* Frameworks */,
 				324CE53A1AB46B3C000013FC /* pinpintong */,
 				324CE5571AB46B3C000013FC /* pinpintongTests */,
@@ -853,6 +853,8 @@
 				32FF10BB1AD0094100EB405C /* MixTableViewCell.h */,
 				32FF10BC1AD0094100EB405C /* MixTableViewCell.m */,
 				324CE5451AB46B3C000013FC /* deliveryViewController.h */,
+				32BAB5FA1AD579780029FED4 /* DiscoveryViewController.h */,
+				32BAB5FB1AD579780029FED4 /* DiscoveryViewController.m */,
 				324CE5461AB46B3C000013FC /* deliveryViewController.m */,
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
 				325B2CC01AD2D49A00DA000F /* MoreViewController.h */,
@@ -1288,7 +1290,6 @@
 				325B2CC51AD426AE00DA000F /* BwUIButton.m in Sources */,
 				325B2C761AD1AB9000DA000F /* MBProgressHUD.m in Sources */,
 				325B2CBE1AD2B80700DA000F /* UIScrollView+MJRefresh.m in Sources */,
-				321BFB4C1AD54234003B9271 /* MixUITableView.m in Sources */,
 				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,
 				32FF10C01AD0189700EB405C /* MixTableViewFrame.m in Sources */,
 				325B2CC21AD2D49A00DA000F /* MoreViewController.m in Sources */,
@@ -1312,6 +1313,7 @@
 				324CE53E1AB46B3C000013FC /* main.m in Sources */,
 				325B2CBF1AD2B80700DA000F /* UIView+MJExtension.m in Sources */,
 				325B2CBD1AD2B80700DA000F /* UIScrollView+MJExtension.m in Sources */,
+				32BAB5FC1AD579780029FED4 /* DiscoveryViewController.m in Sources */,
 				32FF10BD1AD0094100EB405C /* MixTableViewCell.m in Sources */,
 				324CE57E1AB46E8B000013FC /* AFHTTPSessionManager.m in Sources */,
 			);
