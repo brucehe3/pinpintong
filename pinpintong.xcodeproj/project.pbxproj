@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321BFB4C1AD54234003B9271 /* MixUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321BFB4B1AD54234003B9271 /* MixUITableView.m */; };
 		322114541AB55B3100244EDE /* aio_face_tab_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138B1AB55B3100244EDE /* aio_face_tab_line.png */; };
 		322114551AB55B3100244EDE /* alert_dialog_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138C1AB55B3100244EDE /* alert_dialog_icon.png */; };
 		322114561AB55B3100244EDE /* analysis.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138D1AB55B3100244EDE /* analysis.png */; };
@@ -271,6 +272,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		321BFB4B1AD54234003B9271 /* MixUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixUITableView.m; path = pinpintong/MixUITableView.m; sourceTree = "<group>"; };
 		3221138B1AB55B3100244EDE /* aio_face_tab_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aio_face_tab_line.png; sourceTree = "<group>"; };
 		3221138C1AB55B3100244EDE /* alert_dialog_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert_dialog_icon.png; sourceTree = "<group>"; };
 		3221138D1AB55B3100244EDE /* analysis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analysis.png; sourceTree = "<group>"; };
@@ -822,6 +824,7 @@
 		324CE52F1AB46B3C000013FC = {
 			isa = PBXGroup;
 			children = (
+				321BFB4B1AD54234003B9271 /* MixUITableView.m */,
 				3221152D1AB5750E00244EDE /* Frameworks */,
 				324CE53A1AB46B3C000013FC /* pinpintong */,
 				324CE5571AB46B3C000013FC /* pinpintongTests */,
@@ -1285,6 +1288,7 @@
 				325B2CC51AD426AE00DA000F /* BwUIButton.m in Sources */,
 				325B2C761AD1AB9000DA000F /* MBProgressHUD.m in Sources */,
 				325B2CBE1AD2B80700DA000F /* UIScrollView+MJRefresh.m in Sources */,
+				321BFB4C1AD54234003B9271 /* MixUITableView.m in Sources */,
 				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,
 				32FF10C01AD0189700EB405C /* MixTableViewFrame.m in Sources */,
 				325B2CC21AD2D49A00DA000F /* MoreViewController.m in Sources */,
