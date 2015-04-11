@@ -34,6 +34,7 @@
     UIBarButtonItem *barLine = [[UIBarButtonItem alloc] init];
     barLine.title = @"常跑路线";
     [barLine setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15.0f],NSFontAttributeName,nil] forState:UIControlStateNormal];
+    
 
     [[self navigationItem] setRightBarButtonItem:barLine];
     
@@ -76,7 +77,7 @@
     UITextField *keyword = [[UITextField alloc] initWithFrame:CGRectMake(10, 70, size.width-20, 30)];
     keyword.borderStyle = UITextBorderStyleRoundedRect;
     [keyword.layer setCornerRadius:12.0f];
-    keyword.backgroundColor = [UIColor colorWithRed:200/255.0f green:200/255.0f blue:200/255.0f alpha:1];
+    keyword.backgroundColor = [UIColor colorWithRed:214/255.0f green:214/255.0f blue:214/255.0f alpha:1];
     
     [vFilter2 addSubview:departure];
     [vFilter2 addSubview:destination];

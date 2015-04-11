@@ -109,13 +109,6 @@
 		322114B71AB55B3100244EDE /* cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113EE1AB55B3100244EDE /* cursor.png */; };
 		322114B81AB55B3100244EDE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113EF1AB55B3100244EDE /* Default-568h@2x.png */; };
 		322114B91AB55B3100244EDE /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F01AB55B3100244EDE /* Default-667h@2x.png */; };
-		322114BA1AB55B3100244EDE /* Default-Landscape-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F11AB55B3100244EDE /* Default-Landscape-736h@3x.png */; };
-		322114BB1AB55B3100244EDE /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F21AB55B3100244EDE /* Default-Landscape.png */; };
-		322114BC1AB55B3100244EDE /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F31AB55B3100244EDE /* Default-Landscape@2x.png */; };
-		322114BD1AB55B3100244EDE /* Default-Portrait-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F41AB55B3100244EDE /* Default-Portrait-667h@2x.png */; };
-		322114BE1AB55B3100244EDE /* Default-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F51AB55B3100244EDE /* Default-Portrait-736h@3x.png */; };
-		322114BF1AB55B3100244EDE /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F61AB55B3100244EDE /* Default-Portrait.png */; };
-		322114C01AB55B3100244EDE /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F71AB55B3100244EDE /* Default-Portrait@2x.png */; };
 		322114C11AB55B3100244EDE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F81AB55B3100244EDE /* Default.png */; };
 		322114C21AB55B3100244EDE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113F91AB55B3100244EDE /* Default@2x.png */; };
 		322114C31AB55B3100244EDE /* default_face.png in Resources */ = {isa = PBXBuildFile; fileRef = 322113FA1AB55B3100244EDE /* default_face.png */; };
@@ -215,6 +208,7 @@
 		322115281AB574D500244EDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322115271AB574D500244EDE /* Foundation.framework */; };
 		3221152A1AB574DD00244EDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322115291AB574DD00244EDE /* UIKit.framework */; };
 		3221152C1AB574FE00244EDE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3221152B1AB574FE00244EDE /* CoreGraphics.framework */; };
+		3227D0AF1AD9107900BEA10A /* MixPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3227D0AE1AD9107900BEA10A /* MixPublishViewController.m */; };
 		323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */; };
 		323C3FC31AB5CE57007A7DE1 /* MixUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FC21AB5CE57007A7DE1 /* MixUITableView.m */; };
 		324CE53E1AB46B3C000013FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE53D1AB46B3C000013FC /* main.m */; };
@@ -374,13 +368,6 @@
 		322113EE1AB55B3100244EDE /* cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cursor.png; sourceTree = "<group>"; };
 		322113EF1AB55B3100244EDE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		322113F01AB55B3100244EDE /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
-		322113F11AB55B3100244EDE /* Default-Landscape-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape-736h@3x.png"; sourceTree = "<group>"; };
-		322113F21AB55B3100244EDE /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
-		322113F31AB55B3100244EDE /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
-		322113F41AB55B3100244EDE /* Default-Portrait-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait-667h@2x.png"; sourceTree = "<group>"; };
-		322113F51AB55B3100244EDE /* Default-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait-736h@3x.png"; sourceTree = "<group>"; };
-		322113F61AB55B3100244EDE /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
-		322113F71AB55B3100244EDE /* Default-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x.png"; sourceTree = "<group>"; };
 		322113F81AB55B3100244EDE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		322113F91AB55B3100244EDE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		322113FA1AB55B3100244EDE /* default_face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_face.png; sourceTree = "<group>"; };
@@ -481,6 +468,8 @@
 		322115271AB574D500244EDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		322115291AB574DD00244EDE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3221152B1AB574FE00244EDE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3227D0AD1AD9107900BEA10A /* MixPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixPublishViewController.h; sourceTree = "<group>"; };
+		3227D0AE1AD9107900BEA10A /* MixPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixPublishViewController.m; sourceTree = "<group>"; };
 		323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixTableViewController.h; path = Mix/MixTableViewController.h; sourceTree = "<group>"; };
 		323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixTableViewController.m; path = Mix/MixTableViewController.m; sourceTree = "<group>"; };
 		323C3FC21AB5CE57007A7DE1 /* MixUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixUITableView.m; sourceTree = "<group>"; };
@@ -696,13 +685,6 @@
 				322113EE1AB55B3100244EDE /* cursor.png */,
 				322113EF1AB55B3100244EDE /* Default-568h@2x.png */,
 				322113F01AB55B3100244EDE /* Default-667h@2x.png */,
-				322113F11AB55B3100244EDE /* Default-Landscape-736h@3x.png */,
-				322113F21AB55B3100244EDE /* Default-Landscape.png */,
-				322113F31AB55B3100244EDE /* Default-Landscape@2x.png */,
-				322113F41AB55B3100244EDE /* Default-Portrait-667h@2x.png */,
-				322113F51AB55B3100244EDE /* Default-Portrait-736h@3x.png */,
-				322113F61AB55B3100244EDE /* Default-Portrait.png */,
-				322113F71AB55B3100244EDE /* Default-Portrait@2x.png */,
 				322113F81AB55B3100244EDE /* Default.png */,
 				322113F91AB55B3100244EDE /* Default@2x.png */,
 				322113FA1AB55B3100244EDE /* default_face.png */,
@@ -874,6 +856,8 @@
 				32FF10BE1AD0187F00EB405C /* MixTableViewFrame.h */,
 				32FF10BF1AD0189700EB405C /* MixTableViewFrame.m */,
 				32839D4C1AD03F2A003C67D3 /* MixDetailViewController.h */,
+				3227D0AD1AD9107900BEA10A /* MixPublishViewController.h */,
+				3227D0AE1AD9107900BEA10A /* MixPublishViewController.m */,
 				32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */,
 				32839D4F1AD04A33003C67D3 /* DetailDelegate.h */,
 			);
@@ -1054,7 +1038,6 @@
 				322114D81AB55B3100244EDE /* icon_home_sel.png in Resources */,
 				3221147F1AB55B3100244EDE /* boss_unipay_ic_reduce.png in Resources */,
 				322114E41AB55B3100244EDE /* icon_square_sel.png in Resources */,
-				322114BB1AB55B3100244EDE /* Default-Landscape.png in Resources */,
 				322114541AB55B3100244EDE /* aio_face_tab_line.png in Resources */,
 				3221148E1AB55B3100244EDE /* button_dialog_cancel.9.png in Resources */,
 				322114981AB55B3100244EDE /* button_photo_back_pressed.9.png in Resources */,
@@ -1080,7 +1063,6 @@
 				322114961AB55B3100244EDE /* button_photo_back.9.png in Resources */,
 				322114EF1AB55B3100244EDE /* maintab_toolbar_bg.png in Resources */,
 				3221148A1AB55B3100244EDE /* button_cheyuan_icon.9.png in Resources */,
-				322114BE1AB55B3100244EDE /* Default-Portrait-736h@3x.png in Resources */,
 				3221145E1AB55B3100244EDE /* appicon-Small@2x.png in Resources */,
 				322114611AB55B3100244EDE /* assitance.png in Resources */,
 				322114D31AB55B3100244EDE /* ic_launcher.png in Resources */,
@@ -1089,13 +1071,11 @@
 				3221149B1AB55B3100244EDE /* button_photo_left_pressed.png in Resources */,
 				322115231AB5692D00244EDE /* ButtonSelected.png in Resources */,
 				322115181AB55B3100244EDE /* weizhang.png in Resources */,
-				322114BF1AB55B3100244EDE /* Default-Portrait.png in Resources */,
 				3221146B1AB55B3100244EDE /* bg_dialog.9.png in Resources */,
 				322114F51AB55B3100244EDE /* p_record_btn_normal.9.png in Resources */,
 				322114DC1AB55B3100244EDE /* icon_meassage_sel@2x.png in Resources */,
 				322115151AB55B3100244EDE /* wallet_bankcard_grey_bg.9.png in Resources */,
 				324CE54F1AB46B3C000013FC /* LaunchScreen.xib in Resources */,
-				322114BC1AB55B3100244EDE /* Default-Landscape@2x.png in Resources */,
 				322114751AB55B3100244EDE /* bg_rotate_dialog.png in Resources */,
 				322114F11AB55B3100244EDE /* my_info_nor.9.png in Resources */,
 				322114C51AB55B3100244EDE /* duitangdianhua.png in Resources */,
@@ -1133,7 +1113,6 @@
 				322114B01AB55B3100244EDE /* checkbox.png in Resources */,
 				322114CD1AB55B3100244EDE /* grid_normal.9.png in Resources */,
 				3221145C1AB55B3100244EDE /* appicon-Small-50.png in Resources */,
-				322114BA1AB55B3100244EDE /* Default-Landscape-736h@3x.png in Resources */,
 				322114FF1AB55B3100244EDE /* qzone_passivebarnum_bg.9.png in Resources */,
 				322114EA1AB55B3100244EDE /* kongchedugui.png in Resources */,
 				322114E71AB55B3100244EDE /* item_line.png in Resources */,
@@ -1201,7 +1180,6 @@
 				322115251AB5692D00244EDE /* MenuBar@2x.png in Resources */,
 				322114671AB55B3100244EDE /* bg_blue_to.9.png in Resources */,
 				322114F61AB55B3100244EDE /* p_record_btn_pressed.9.png in Resources */,
-				322114BD1AB55B3100244EDE /* Default-Portrait-667h@2x.png in Resources */,
 				3221151A1AB55B3100244EDE /* wenjuandiaocha_item.png in Resources */,
 				322114991AB55B3100244EDE /* button_photo_back_pressed.png in Resources */,
 				322114D91AB55B3100244EDE /* icon_home_sel@2x.png in Resources */,
@@ -1225,7 +1203,6 @@
 				322114C81AB55B3100244EDE /* edittext_normal_normal.9.png in Resources */,
 				322115241AB5692D00244EDE /* MenuBar.png in Resources */,
 				3221147C1AB55B3100244EDE /* boss_unipay_editbg_c.9.png in Resources */,
-				322114C01AB55B3100244EDE /* Default-Portrait@2x.png in Resources */,
 				322115081AB55B3100244EDE /* split_back_ground.9.png in Resources */,
 				322114851AB55B3100244EDE /* button_blue.png in Resources */,
 				322114731AB55B3100244EDE /* bg_member_center_step_end_focus.9.png in Resources */,
@@ -1281,6 +1258,7 @@
 				325B2CBB1AD2B80700DA000F /* MJRefreshLegendFooter.m in Sources */,
 				325B2CB61AD2B80700DA000F /* MJRefreshConst.m in Sources */,
 				324CE5811AB46E8B000013FC /* AFURLConnectionOperation.m in Sources */,
+				3227D0AF1AD9107900BEA10A /* MixPublishViewController.m in Sources */,
 				322115261AB5692D00244EDE /* MKHorizMenu.m in Sources */,
 				324CE57C1AB46E8B000013FC /* AFHTTPRequestOperation.m in Sources */,
 				324CE57F1AB46E8B000013FC /* AFNetworkReachabilityManager.m in Sources */,

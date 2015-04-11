@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MKHorizMenu.h"
 #import "DetailDelegate.h"
+#import "MBProgressHUD.h"
 
 
 @interface MixViewController :
@@ -16,8 +17,10 @@
     MKHorizMenuDataSource,
     MKHorizMenuDelegate,
     UITableViewDataSource,
-    UITableViewDelegate> {
+    UITableViewDelegate,
+    MBProgressHUDDelegate> {
 
+    MBProgressHUD *hud;
     MKHorizMenu *_horizMenu;
     NSMutableArray *_items;
     NSMutableArray *_itemsKeys;

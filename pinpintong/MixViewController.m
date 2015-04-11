@@ -12,6 +12,7 @@
 #import "MixTableViewCell.h"
 #import "MixTableViewFrame.h"
 #import "MixDetailViewController.h"
+#import "MixPublishViewController.h"
 #import "MJRefresh.h"
 
 
@@ -36,12 +37,22 @@
 
 - (void)viewDidLoad {
     
+    [[[self navigationController] navigationBar] setTintColor:[UIColor whiteColor]];
+    UIBarButtonItem *barLine = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(publishTouched:)];
+    //barLine.title = @"发布";
+    [barLine setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15.0f],NSFontAttributeName,nil] forState:UIControlStateNormal];
+    
+    [[self navigationItem] setRightBarButtonItem:barLine];
+    
+
+    
     NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
 
     NSString *url =  [api_url stringByAppendingString:@"getCategoryByType?type=lcl"];
 
     [AFNetworkTool JSONDataWithUrl:url success:^(id json) {
         
+        [hud hide:YES];
         
         NSString *result = [json objectForKey:@"result"];
         
@@ -74,6 +85,7 @@
         // 得到回调之后,通常更新UI,是在主线程
         //        NSLog(@"%@", [NSThread currentThread]);
     } fail:^{
+        [hud hide:YES];
         NSLog(@"请求失败");
     }];
 
@@ -109,6 +121,8 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+
+
 - (void) headerRefreshing{
     
     self.gpage = 1;
@@ -127,17 +141,21 @@
 
 - (void) refreshingData:(NSUInteger)page callback:(void(^)()) callback
 {
+    
+    //hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.delegate=self;
+
     NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
     NSString *list_url = [api_url stringByAppendingString:@"GetLclDataByCid"];
-    list_url = [list_url stringByAppendingFormat:@"?cid=%d&page=%d&page_size=10",self.tid,page];
+    list_url = [list_url stringByAppendingFormat:@"?cid=%lu&page=%lu&page_size=10",(unsigned long)self.tid,(unsigned long)page];
     
     NSLog(@"%@",list_url);
     //load data
     [AFNetworkTool JSONDataWithUrl:list_url success:^(id json) {
-        
-        
+
         NSString *result = [json objectForKey:@"result"];
         
+        //[hud removeFromSuperview];
         if([result  isEqual:@"ok"])
         {
             
@@ -168,6 +186,7 @@
         }
         
     } fail:^{
+        //[hud removeFromSuperview];
         NSLog(@"请求失败");
     }];
 
@@ -295,5 +314,14 @@
     
     [self.delegate setValue:detail_id];
 
+}
+
+-(void)publishTouched:(id)sender{
+    
+    MixPublishViewController *publishViewController = [[MixPublishViewController alloc] init];
+    publishViewController.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:publishViewController animated:YES];
+    
 }
 @end

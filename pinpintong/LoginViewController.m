@@ -26,7 +26,7 @@
     
     //[header.layer setBorderColor:[[UIColor blackColor] CGColor]];
     //[header.layer setBorderWidth:5.0f];
-    
+
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     title.textAlignment = NSTextAlignmentCenter;
     title.textColor = [UIColor whiteColor];
@@ -108,7 +108,6 @@
     [self.view endEditing:YES];
     [self.password resignFirstResponder];
 }
-
 
 - (void) loginTouched:(id)sender
 {
