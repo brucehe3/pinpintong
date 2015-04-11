@@ -76,7 +76,7 @@
     UITextField *keyword = [[UITextField alloc] initWithFrame:CGRectMake(10, 70, size.width-20, 30)];
     keyword.borderStyle = UITextBorderStyleRoundedRect;
     [keyword.layer setCornerRadius:12.0f];
-    keyword.backgroundColor = [UIColor colorWithRed:220/255.0f green:220/255.0f blue:220/255.0f alpha:1];
+    keyword.backgroundColor = [UIColor colorWithRed:200/255.0f green:200/255.0f blue:200/255.0f alpha:1];
     
     [vFilter2 addSubview:departure];
     [vFilter2 addSubview:destination];
@@ -105,9 +105,21 @@
     //[vFilter2 addConstraints:constraints6];
     //[vFilter2 addConstraints:constraints7];
 
+    // tap for dismissing keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 
 
     
+}
+
+
+// tap dismiss keyboard
+-(void)dismissKeyboard {
+    [self.view endEditing:YES];
+    [self.keyword resignFirstResponder];
 }
 
 - (UIButton*) createButton:(id)target Selector:(SEL)selector Image:(NSString *)image Title:(NSString *) title
