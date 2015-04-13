@@ -25,4 +25,9 @@
 +(BOOL) isLoggedIn;
 
 + (CGSize)sizeWithString:(NSString *)str font:(UIFont *)font maxSize:(CGSize)maxSize;
+
++(void) setRegionData;
+
++(id) getDataInfo:(NSString *) key;
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321AFF4B1ADB671B00E9080F /* UIPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 321AFF4A1ADB671B00E9080F /* UIPlaceholderTextView.m */; };
 		322114541AB55B3100244EDE /* aio_face_tab_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138B1AB55B3100244EDE /* aio_face_tab_line.png */; };
 		322114551AB55B3100244EDE /* alert_dialog_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138C1AB55B3100244EDE /* alert_dialog_icon.png */; };
 		322114561AB55B3100244EDE /* analysis.png in Resources */ = {isa = PBXBuildFile; fileRef = 3221138D1AB55B3100244EDE /* analysis.png */; };
@@ -266,6 +267,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		321AFF491ADB671B00E9080F /* UIPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceholderTextView.h; sourceTree = "<group>"; };
+		321AFF4A1ADB671B00E9080F /* UIPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceholderTextView.m; sourceTree = "<group>"; };
 		3221138B1AB55B3100244EDE /* aio_face_tab_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aio_face_tab_line.png; sourceTree = "<group>"; };
 		3221138C1AB55B3100244EDE /* alert_dialog_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alert_dialog_icon.png; sourceTree = "<group>"; };
 		3221138D1AB55B3100244EDE /* analysis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analysis.png; sourceTree = "<group>"; };
@@ -858,6 +861,8 @@
 				32839D4C1AD03F2A003C67D3 /* MixDetailViewController.h */,
 				3227D0AD1AD9107900BEA10A /* MixPublishViewController.h */,
 				3227D0AE1AD9107900BEA10A /* MixPublishViewController.m */,
+				321AFF491ADB671B00E9080F /* UIPlaceholderTextView.h */,
+				321AFF4A1ADB671B00E9080F /* UIPlaceholderTextView.m */,
 				32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */,
 				32839D4F1AD04A33003C67D3 /* DetailDelegate.h */,
 			);
@@ -1266,6 +1271,7 @@
 				324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */,
 				324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */,
 				325B2CC51AD426AE00DA000F /* BwUIButton.m in Sources */,
+				321AFF4B1ADB671B00E9080F /* UIPlaceholderTextView.m in Sources */,
 				325B2C761AD1AB9000DA000F /* MBProgressHUD.m in Sources */,
 				325B2CBE1AD2B80700DA000F /* UIScrollView+MJRefresh.m in Sources */,
 				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,

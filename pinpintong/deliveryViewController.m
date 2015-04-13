@@ -7,9 +7,18 @@
 //
 
 #import "DeliveryViewController.h"
+#import "BWCommon.h"
+#import "AFNetworkTool.h"
 
 @interface DeliveryViewController ()
 - (UIButton*) createButton:(id)target Selector:(SEL)selector Image:(NSString *)image Title:(NSString *) title;
+
+@property (nonatomic,retain) NSMutableArray *province;
+@property (nonatomic,retain) NSMutableArray *provinceKey;
+@property (nonatomic,retain) NSMutableArray *city;
+@property (nonatomic,retain) NSMutableArray *cityKey;
+@property (nonatomic,retain) NSString *selectedProvince;
+@property (nonatomic,retain) NSString *selectedCity;
 @end
 
 @implementation DeliveryViewController
@@ -19,6 +28,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self layoutPage];
+    
+    [self loadRegion];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +39,13 @@
 }
 
 - (void)layoutPage{
+    
+    self.province = [[NSMutableArray alloc] init];
+    self.provinceKey = [[NSMutableArray alloc] init];
+    self.city = [[NSMutableArray alloc] init];
+    self.cityKey = [[NSMutableArray alloc] init];
+    self.selectedProvince = [[NSString alloc] init];
+    self.selectedCity = [[NSString alloc] init];
     
     [[self navigationItem] setTitle:@"长途配货"];
     [[[self navigationController] navigationBar] setTintColor:[UIColor whiteColor]];
@@ -59,59 +78,68 @@
     
     [vFilter addSubview:vFilter2];
     
-    UILabel *departure = [[UILabel alloc] init];
+    UILabel *departure = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 80, 30)];
     departure.text = @"出发地";
-    departure.translatesAutoresizingMaskIntoConstraints= NO;
-    departure.font = [UIFont systemFontOfSize:16];
+
+    departure.font = [UIFont systemFontOfSize:14];
     
-    UILabel *destination = [[UILabel alloc] init];
+    UILabel *destination = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 80, 30)];
     destination.text = @"目的地";
-    destination.translatesAutoresizingMaskIntoConstraints= NO;
-    destination.font = [UIFont systemFontOfSize:16];
+
+    destination.font = [UIFont systemFontOfSize:14];
+
     
-    UIButton *departureProvince = [self createButton:self Selector:nil Image:@"input_bg.png" Title:@"选择省份"];
-    UIButton *departureCity = [self createButton:self Selector:nil Image:@"input_bg.png" Title:@"选择城市"];
-    UIButton *destinationProvince = [self createButton:self Selector:nil Image:@"input_bg.png" Title:@"选择省份"];
-    UIButton *destinationCity = [self createButton:self Selector:nil Image:@"input_bg.png" Title:@"选择城市"];
+    UITextField *departureArea = [[UITextField alloc] initWithFrame:CGRectMake(100, 10, 120, 30)];
+
+    departureArea.placeholder = @"选择出发地";
+    departureArea.font = [UIFont systemFontOfSize:14];
+    UITextField *destinationArea = [[UITextField alloc] initWithFrame:CGRectMake(100, 40, 120, 30)];
+    destinationArea.font = [UIFont systemFontOfSize:14];
+    destinationArea.placeholder = @"选择目的地";
     
-    UITextField *keyword = [[UITextField alloc] initWithFrame:CGRectMake(10, 70, size.width-20, 30)];
+    UITextField *keyword = [[UITextField alloc] initWithFrame:CGRectMake(10, 70, size.width-90, 30)];
     keyword.borderStyle = UITextBorderStyleRoundedRect;
     [keyword.layer setCornerRadius:12.0f];
     keyword.backgroundColor = [UIColor colorWithRed:214/255.0f green:214/255.0f blue:214/255.0f alpha:1];
     
     [vFilter2 addSubview:departure];
     [vFilter2 addSubview:destination];
-    [vFilter2 addSubview:departureProvince];
-    [vFilter2 addSubview:departureCity];
-    [vFilter2 addSubview:destinationProvince];
-    [vFilter2 addSubview:destinationCity];
+
+    [vFilter2 addSubview:departureArea];
+    [vFilter2 addSubview:destinationArea];
     [vFilter addSubview:keyword];
     
     
-    NSArray *constraints1= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[departure]-[departureProvince(==115)]-[departureCity(==115)]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(departure,departureProvince,departureCity)];
-    NSArray *constraints2= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[destination]-[destinationProvince(==115)]-[destinationCity(==115)]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(destination,destinationProvince,destinationCity)];
-    NSArray *constraints3= [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[departure]-[destination]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(departure,destination)];
-    NSArray *constraints4= [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[departureProvince(==23)]-[destinationProvince(==23)]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(departureProvince,destinationProvince)];
-    NSArray *constraints5= [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[departureCity(==23)]-[destinationCity(==23)]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(departureCity
-,destinationCity)];
-    
-    //NSArray *constraints6 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-80-[keyword]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(keyword)];
-    //NSArray *constraints7 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[keyword]-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(keyword)];
-    
-    [vFilter2 addConstraints:constraints1];
-    [vFilter2 addConstraints:constraints2];
-    [vFilter2 addConstraints:constraints3];
-    [vFilter2 addConstraints:constraints4];
-    [vFilter2 addConstraints:constraints5];
-    //[vFilter2 addConstraints:constraints6];
-    //[vFilter2 addConstraints:constraints7];
+
+
 
     // tap for dismissing keyboard
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-
+    
+    
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    pickerView.showsSelectionIndicator = YES;
+    pickerView.dataSource = self;
+    pickerView.delegate = self;
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, size.width, 44)];
+    toolBar.barStyle = UIBarStyleDefault;
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTouched:)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelTouched:)];
+    
+    [toolBar setItems:[NSArray arrayWithObjects:cancelButton,[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],doneButton,nil ]];
+    
+    departureArea.inputView = pickerView;
+    departureArea.inputAccessoryView = toolBar;
+    destinationArea.inputView = pickerView;
+    destinationArea.inputAccessoryView = toolBar;
+    
+    self.departureArea = departureArea;
+    self.destinationArea = destinationArea;
 
     
 }
@@ -142,4 +170,107 @@
     return button;
 }
 
+
+-(void)doneTouched:(id)sender{
+    //[self.category resignFirstResponder];
+    if([self.departureArea resignFirstResponder] == YES){
+    
+        self.departureArea.text = [NSString stringWithFormat:@"%@ %@", self.selectedProvince,self.selectedCity ];
+        [self.departureArea resignFirstResponder];
+    }
+    
+    if([self.destinationArea resignFirstResponder] == YES){
+        self.destinationArea.text = [NSString stringWithFormat:@"%@ %@", self.selectedProvince,self.selectedCity ];
+        [self.destinationArea resignFirstResponder];
+    }
+
+}
+-(void) cancelTouched:(id)sender{
+    [self.departureArea resignFirstResponder];
+    [self.destinationArea resignFirstResponder];
+}
+
+- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
+    return 2;
+}
+
+-(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    //return [self.items count];
+    if(component == 0){
+        return [self.province count];
+    }
+    else if(component == 1){
+        return [self.city count];
+    }
+    
+    return 0;
+}
+
+-(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    //return [self.items objectAtIndex:row];
+    
+    NSLog(@"%@",pickerView);
+    if(component == 0){
+        return [self.province objectAtIndex:row];
+    }
+    else if (component == 1){
+        
+        return [self.city objectAtIndex:row];
+    }
+    
+    return @"";
+}
+
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    if(component == 0){
+        [self loadCity:[[self.provinceKey objectAtIndex:row] integerValue]];
+        [pickerView selectedRowInComponent:1];
+        [pickerView reloadComponent:1];
+        
+        self.selectedProvince = [self.province objectAtIndex:row];
+    }
+    if(component == 1){
+        
+         [pickerView selectRow:0 inComponent:1 animated:YES];
+        self.selectedCity = [self.city objectAtIndex:row];
+    }
+    //self.category.text = [self.items objectAtIndex:row];
+   // self.cid = [[self.itemsKeys objectAtIndex:row] integerValue];
+}
+
+-(void) loadRegion{
+    NSArray *regions = [BWCommon getDataInfo:@"regions"];
+    //遍历获取数据
+    //省份数据 parent_id=1
+    
+    for (int i=0;i<[regions count];i++){
+        NSDictionary *item = [[NSDictionary alloc] initWithDictionary:[regions objectAtIndex:i]];
+        
+        if ([[item objectForKey:@"parent_id"] integerValue] == 1) {
+            [self.province addObject:[item objectForKey:@"region_name"]];
+            [self.provinceKey addObject:[item objectForKey:@"region_id"]];
+        }
+    }
+    
+    //默认加载第一条
+    [self loadCity:[[self.provinceKey objectAtIndex:0] integerValue]];
+    //NSLog(@"%@",self.province);
+
+}
+
+-(void) loadCity:(NSInteger) parent_id{
+    NSArray *regions = [BWCommon getDataInfo:@"regions"];
+    [self.city removeAllObjects];
+    [self.cityKey removeAllObjects];
+    for (int i=0;i<[regions count];i++){
+        NSDictionary *item = [[NSDictionary alloc] initWithDictionary:[regions objectAtIndex:i]];
+        if ([[item objectForKey:@"parent_id"] integerValue] == parent_id) {
+            [self.city addObject:[item objectForKey:@"region_name"]];
+            [self.cityKey addObject:[item objectForKey:@"region_id"]];
+        }
+    }
+    NSLog(@"%@",self.city);
+}
 @end

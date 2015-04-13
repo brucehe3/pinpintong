@@ -7,6 +7,7 @@
 //
 
 #import "BWCommon.h"
+#import "AFNetworkTool.h"
 
 @implementation BWCommon
 
@@ -38,6 +39,42 @@
     return [self getUserInfo:@"username"] != nil;
 }
 
+//实际还是从NSUserDefaults中获取
++(id) getDataInfo:(NSString *)key
+{
+    return [self getUserInfo:key];
+}
+
++(void) setRegionData{
+    //如果地区不存在 则重新加载
+    if ([self getDataInfo:@"regions"] != nil) {
+        return;
+    }
+    
+    NSString *api_url = [self getBaseInfo:@"api_url"];
+    
+    NSString *url =  [api_url stringByAppendingString:@"getAllRegion"];
+ 
+    [AFNetworkTool JSONDataWithUrl:url success:^(id json) {
+
+        
+        NSString *result = [json objectForKey:@"result"];
+        
+        if([result  isEqual:@"ok"])
+        {
+            NSArray *regions = [json objectForKey:@"data"];
+           
+            NSUserDefaults *udata = [NSUserDefaults standardUserDefaults];
+            [udata setObject:regions forKey:@"regions"];
+            [udata synchronize];
+        }
+    } fail:^{
+
+        NSLog(@"请求失败");
+    }];
+
+
+}
 
 /**
  *  计算文本的宽高

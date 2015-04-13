@@ -7,14 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIPlaceholderTextView.h"
+#import "MBProgressHUD.h"
 
 @interface MixPublishViewController : UIViewController
 <UITextViewDelegate,
 UIPickerViewDelegate,
-UIPickerViewDataSource
->
+UIPickerViewDataSource,
+UITextFieldDelegate,
+MBProgressHUDDelegate>
+{
+    MBProgressHUD * hud;
+}
 
-
-@property (nonatomic,strong) UITextView *content;
+@property (nonatomic,strong) UIPlaceholderTextView *content;
 @property (nonatomic,strong) UITextField *category;
+
+@property (nonatomic,retain) NSMutableArray *items;
+@property (nonatomic,retain) NSMutableArray *itemsKeys;
+
 @end

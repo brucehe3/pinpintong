@@ -19,6 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    //加载地区数据
+    [BWCommon setRegionData];
+    
     BOOL isLoggedIn = [BWCommon isLoggedIn];
     
     NSString * segueId = isLoggedIn ? @"MainIdentifier" : @"LoginIdentifier";
