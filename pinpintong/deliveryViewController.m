@@ -9,6 +9,10 @@
 #import "DeliveryViewController.h"
 #import "BWCommon.h"
 #import "AFNetworkTool.h"
+#import "MixTableViewCell.h"
+#import "MixTableViewFrame.h"
+#import "MJRefresh.h"
+
 
 @interface DeliveryViewController ()
 - (UIButton*) createButton:(id)target Selector:(SEL)selector Image:(NSString *)image Title:(NSString *) title;
@@ -19,9 +23,16 @@
 @property (nonatomic,retain) NSMutableArray *cityKey;
 @property (nonatomic,retain) NSString *selectedProvince;
 @property (nonatomic,retain) NSString *selectedCity;
+
+@property (nonatomic, strong) NSArray *statusFrames;
+
 @end
 
 @implementation DeliveryViewController
+
+@synthesize tableview;
+@synthesize delegate;
+@synthesize dataArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +58,8 @@
     self.selectedProvince = [[NSString alloc] init];
     self.selectedCity = [[NSString alloc] init];
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [[self navigationItem] setTitle:@"长途配货"];
     [[[self navigationController] navigationBar] setTintColor:[UIColor whiteColor]];
     
@@ -63,11 +76,11 @@
     CGRect rect = [[UIScreen mainScreen] bounds];
     CGSize size = rect.size;
     
-    UIScrollView *sclView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    sclView.backgroundColor = [UIColor colorWithRed:200/255.5f green:200/255.5f blue:200/255.5f alpha:1];
-    sclView.scrollEnabled = YES;
-    sclView.contentSize = CGSizeMake(size.width, size.height);
-    [self.view addSubview:sclView];
+    //UIScrollView *sclView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 110, size.width, size.height)];
+    //sclView.backgroundColor = [UIColor colorWithRed:200/255.5f green:200/255.5f blue:200/255.5f alpha:1];
+    //sclView.scrollEnabled = YES;
+    //sclView.contentSize = CGSizeMake(size.width, size.height);
+    //[self.view addSubview:sclView];
     
     //筛选区
     UIView *vFilter = [[UIView alloc] initWithFrame:CGRectMake(0, 64, size.width, 110)];
@@ -97,10 +110,17 @@
     destinationArea.font = [UIFont systemFontOfSize:14];
     destinationArea.placeholder = @"选择目的地";
     
-    UITextField *keyword = [[UITextField alloc] initWithFrame:CGRectMake(10, 70, size.width-90, 30)];
+    UITextField *keyword = [[UITextField alloc] initWithFrame:CGRectMake(10, 70, size.width-20, 30)];
     keyword.borderStyle = UITextBorderStyleRoundedRect;
     [keyword.layer setCornerRadius:12.0f];
     keyword.backgroundColor = [UIColor colorWithRed:214/255.0f green:214/255.0f blue:214/255.0f alpha:1];
+    
+    UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(size.width - 38, 75, 20, 20)];
+    UIImage *iconQuery = [UIImage imageNamed:@"query.png"];
+    //[btnSearch setTitle:@"搜索" forState:UIControlStateNormal];
+    [btnSearch setBackgroundImage:iconQuery forState:UIControlStateNormal];
+   // btnSearch.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    //[btnSearch setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [vFilter2 addSubview:departure];
     [vFilter2 addSubview:destination];
@@ -108,7 +128,35 @@
     [vFilter2 addSubview:departureArea];
     [vFilter2 addSubview:destinationArea];
     [vFilter addSubview:keyword];
+    [vFilter addSubview:btnSearch];
     
+    
+    NSArray *segmentedData = [[NSArray alloc]initWithObjects:@"货源",@"车源", nil];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedData];
+    segmentedControl.frame = CGRectMake(10, 180, size.width-20, 30);
+    
+    segmentedControl.tintColor = [UIColor colorWithRed:12/255.0 green:129/255.0 blue:245/255.0 alpha:1];
+    segmentedControl.selectedSegmentIndex = 0;
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:12],NSFontAttributeName,[UIColor colorWithRed:12/255.0 green:129/255.0 blue:245/255.0 alpha:1],NSForegroundColorAttributeName, nil];
+    
+    [segmentedControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    NSDictionary *highlightedAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    
+    [segmentedControl setTitleTextAttributes:highlightedAttributes forState:UIControlStateHighlighted];
+    
+    [segmentedControl addTarget:self action:@selector(touchedInSegment:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:segmentedControl];
+    
+    
+    tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 220, size.width, size.height-270)];
+    tableview.delegate = self;
+    tableview.dataSource = self;
+    
+    [self.view addSubview:tableview];
+
     
 
 
@@ -144,6 +192,9 @@
     
 }
 
+-(void) touchedInSegment:(id)sender{
+    NSLog(@"%@",sender);
+}
 
 // tap dismiss keyboard
 -(void)dismissKeyboard {
@@ -209,13 +260,14 @@
 
 -(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     //return [self.items objectAtIndex:row];
-    
-    NSLog(@"%@",pickerView);
+
     if(component == 0){
+        
+        self.selectedProvince = [self.province objectAtIndex:row];
         return [self.province objectAtIndex:row];
     }
     else if (component == 1){
-        
+        self.selectedCity = [self.city objectAtIndex:row];
         return [self.city objectAtIndex:row];
     }
     
@@ -273,4 +325,130 @@
     }
     NSLog(@"%@",self.city);
 }
+
+
+- (void) refreshingData:(NSUInteger)page callback:(void(^)()) callback
+{
+    
+    //hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //hud.delegate=self;
+    
+    NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
+    NSString *list_url = [api_url stringByAppendingString:@"GetLclDataByCid"];
+    //list_url = [list_url stringByAppendingFormat:@"?cid=%lu&page=%lu&page_size=10",(unsigned long)self.tid,(unsigned long)page];
+    
+    //NSLog(@"%@",list_url);
+    //load data
+    [AFNetworkTool JSONDataWithUrl:list_url success:^(id json) {
+        
+        NSString *result = [json objectForKey:@"result"];
+        
+        //[hud removeFromSuperview];
+        if([result  isEqual:@"ok"])
+        {
+            
+            //NSArray *data = [[NSArray alloc] init];
+            if(page == 1)
+            {
+                dataArray = [[json objectForKey:@"data"] mutableCopy];
+            }
+            else
+            {
+                [dataArray addObjectsFromArray:[[json objectForKey:@"data"] mutableCopy]];
+                
+            }
+            
+            self.statusFrames = nil;
+            
+            [tableview reloadData];
+            
+            if(callback){
+                callback();
+            }
+            
+            //NSLog(@"%@",json);
+        }
+        else
+        {
+            NSLog(@"%@",[json objectForKey:@"msg"]);
+        }
+        
+    } fail:^{
+        //[hud removeFromSuperview];
+        NSLog(@"请求失败");
+    }];
+    
+    
+}
+
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+{
+    return 1;
+}
+
+/* 这个函数是指定显示多少cells*/
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[self dataArray] count];//这个是指定加载数据的多少即显示多少个cell，如果这个地方弄错了会崩溃的哟
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    MixTableViewCell *cell = [MixTableViewCell cellWithTableView:tableview];
+    
+    cell.viewFrame = self.statusFrames[indexPath.row];
+    
+    //cell.textLabel.text = [[dataArray objectAtIndex:[indexPath row]] objectForKey:@"content"];
+    //cell.textLabel.text = [dataArray objectAtIndex:[indexPathrow]];  //通过 [indexPath row] 遍历数组
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // NSLog(@"heightForRowAtIndexPath");
+    // 取出对应航的frame模型
+    MixTableViewFrame *vf = self.statusFrames[indexPath.row];
+    NSLog(@"height = %f", vf.cellHeight);
+    return vf.cellHeight;
+}
+
+- (NSArray *)statusFrames
+{
+    if (_statusFrames == nil) {
+        
+        NSMutableArray *models = [NSMutableArray arrayWithCapacity:dataArray.count];
+        
+        for (NSDictionary *dict in dataArray) {
+            // 创建模型
+            MixTableViewFrame *vf = [[MixTableViewFrame alloc] init];
+            vf.data = dict;
+            [models addObject:vf];
+        }
+        self.statusFrames = [models copy];
+    }
+    return _statusFrames;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger detail_id;
+    detail_id = [[[dataArray objectAtIndex:[indexPath row]] objectForKey:@"id"] integerValue];
+   /*
+    MixDetailViewController *detailViewController = [[MixDetailViewController alloc] init];
+    
+    detailViewController.hidesBottomBarWhenPushed = YES;
+    self.delegate = detailViewController;
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    [self.delegate setValue:detail_id];
+    */
+    
+}
+
 @end

@@ -7,10 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailDelegate.h"
+#import "MBProgressHUD.h"
 
 @interface DeliveryViewController : UIViewController
+<
+UIPickerViewDelegate,
+UIPickerViewDataSource,
+UITableViewDataSource,
+UITableViewDelegate>
+
 
 @property (nonatomic,strong) UITextField *keyword;
+@property (nonatomic,strong) UITextField *departureArea;
+@property (nonatomic,strong) UITextField *destinationArea;
+@property (nonatomic,strong) UITableView *tableview;
+@property (nonatomic,assign) id<DetailDelegate> delegate;
+@property (nonatomic,retain) NSMutableArray *dataArray;
 
 @end
 
