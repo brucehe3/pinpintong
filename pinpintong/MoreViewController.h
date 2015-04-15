@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreViewController : UIViewController
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
 
 
 

@@ -246,6 +246,8 @@
 		325B2CBF1AD2B80700DA000F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 325B2CB31AD2B80700DA000F /* UIView+MJExtension.m */; };
 		325B2CC21AD2D49A00DA000F /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 325B2CC11AD2D49A00DA000F /* MoreViewController.m */; };
 		325B2CC51AD426AE00DA000F /* BwUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 325B2CC41AD426AE00DA000F /* BwUIButton.m */; };
+		32609F321ADE5F7800D11B8B /* MoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32609F311ADE5F7800D11B8B /* MoreTableViewCell.m */; };
+		32609F351ADE664B00D11B8B /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32609F341ADE664B00D11B8B /* UserInfoTableViewController.m */; };
 		32839D4E1AD03F2A003C67D3 /* MixDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */; };
 		32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */; };
 		32B9093D1ADD1C91009CE667 /* query.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B9093C1ADD1C91009CE667 /* query.png */; };
@@ -545,6 +547,10 @@
 		325B2CC11AD2D49A00DA000F /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		325B2CC31AD426AD00DA000F /* BwUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BwUIButton.h; sourceTree = "<group>"; };
 		325B2CC41AD426AE00DA000F /* BwUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BwUIButton.m; sourceTree = "<group>"; };
+		32609F301ADE5F7800D11B8B /* MoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewCell.h; sourceTree = "<group>"; };
+		32609F311ADE5F7800D11B8B /* MoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewCell.m; sourceTree = "<group>"; };
+		32609F331ADE664B00D11B8B /* UserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewController.h; sourceTree = "<group>"; };
+		32609F341ADE664B00D11B8B /* UserInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewController.m; sourceTree = "<group>"; };
 		32839D4C1AD03F2A003C67D3 /* MixDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixDetailViewController.h; sourceTree = "<group>"; };
 		32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixDetailViewController.m; sourceTree = "<group>"; };
 		32839D4F1AD04A33003C67D3 /* DetailDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDelegate.h; sourceTree = "<group>"; };
@@ -847,9 +853,13 @@
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
 				325B2CC01AD2D49A00DA000F /* MoreViewController.h */,
 				325B2CC11AD2D49A00DA000F /* MoreViewController.m */,
+				32609F331ADE664B00D11B8B /* UserInfoTableViewController.h */,
+				32609F341ADE664B00D11B8B /* UserInfoTableViewController.m */,
 				325B2CC31AD426AD00DA000F /* BwUIButton.h */,
 				325B2CC41AD426AE00DA000F /* BwUIButton.m */,
 				32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */,
+				32609F301ADE5F7800D11B8B /* MoreTableViewCell.h */,
+				32609F311ADE5F7800D11B8B /* MoreTableViewCell.m */,
 				32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */,
 				325B2C711AD1806000DA000F /* RegisterViewController.h */,
 				325B2C721AD1806000DA000F /* RegisterViewController.m */,
@@ -1271,6 +1281,7 @@
 				322115261AB5692D00244EDE /* MKHorizMenu.m in Sources */,
 				324CE57C1AB46E8B000013FC /* AFHTTPRequestOperation.m in Sources */,
 				324CE57F1AB46E8B000013FC /* AFNetworkReachabilityManager.m in Sources */,
+				32609F321ADE5F7800D11B8B /* MoreTableViewCell.m in Sources */,
 				32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */,
 				324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */,
 				324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */,
@@ -1283,6 +1294,7 @@
 				325B2CC21AD2D49A00DA000F /* MoreViewController.m in Sources */,
 				324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */,
 				323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */,
+				32609F351ADE664B00D11B8B /* UserInfoTableViewController.m in Sources */,
 				325B2CB51AD2B80700DA000F /* MJRefreshComponent.m in Sources */,
 				325B2C731AD1806000DA000F /* RegisterViewController.m in Sources */,
 				325B2CBC1AD2B80700DA000F /* MJRefreshLegendHeader.m in Sources */,

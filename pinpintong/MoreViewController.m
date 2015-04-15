@@ -8,6 +8,8 @@
 
 #import "MoreViewController.h"
 #import "BWCommon.h"
+#import "MoreTableViewCell.h"
+#import "UserInfoTableViewController.h"
 
 @interface MoreViewController ()
 
@@ -30,6 +32,68 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
+{
+    return 1;
+}
+
+/* 这个函数是指定显示多少cells*/
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1; //这个是指定加载数据的多少即显示多少个cell，如果这个地方弄错了会崩溃的哟
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"username";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    //if (cell == nil) {
+        
+    cell = [[MoreTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+        //UIImageView * face;
+        //face = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
+        //[face setImage:[UIImage imageNamed:@"default_face2.png"]];
+    cell.textLabel.text = [BWCommon getUserInfo:@"username"];
+
+    cell.imageView.image = [UIImage imageNamed:@"default_face2.png"];
+    
+    cell.detailTextLabel.text = @"商户名称";
+    
+    
+    
+    
+        
+    //}
+    return cell;
+
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSUInteger detail_id;
+    //detail_id = [[[dataArray objectAtIndex:[indexPath row]] objectForKey:@"id"] integerValue];
+    
+    UserInfoTableViewController *userInfoTableViewController = [[UserInfoTableViewController alloc] init];
+    userInfoTableViewController.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:userInfoTableViewController animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
+
+
 - (void) initLayout{
     
     
@@ -44,19 +108,27 @@
     sclView.contentSize = CGSizeMake(size.width, size.height-110);
     [self.view addSubview:sclView];
     
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, size.width, 60)];
-    headView.backgroundColor = [UIColor whiteColor];
-    [sclView addSubview:headView];
+    UITableView *tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 10, size.width, 60)];
+    tableview.delegate = self;
+    tableview.dataSource = self;
     
-    UIImageView * face;
-    face = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 40, 40)];
-    [face setImage:[UIImage imageNamed:@"default_face2.png"]];
+    [tableview setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [sclView addSubview:tableview];
+    
+    
+   // UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 10, size.width, 60)];
+   // headView.backgroundColor = [UIColor whiteColor];
+   // [sclView addSubview:headView];
+    
 
-    [headView  addSubview:face];
     
-    UILabel * username = [[UILabel alloc]initWithFrame:CGRectMake(60, 20, 120, 20)];
-    username.text = [BWCommon getUserInfo:@"username"];
-    [headView addSubview:username];
+
+   // [headView  addSubview:face];
+    
+   // UILabel * username = [[UILabel alloc]initWithFrame:CGRectMake(60, 20, 120, 20)];
+   // username.text = [BWCommon getUserInfo:@"username"];
+   // [headView addSubview:username];
     
     UIView *mainView = [[UIView alloc] initWithFrame:CGRectMake(0, 80, size.width, 320)];
     mainView.backgroundColor = [UIColor whiteColor];

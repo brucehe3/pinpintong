@@ -26,6 +26,18 @@
 
 @property (nonatomic, strong) NSArray *statusFrames;
 
+@property (nonatomic, assign) NSUInteger selectedProvinceId;
+@property (nonatomic, assign) NSUInteger selectedCityId;
+
+@property (nonatomic, assign) NSUInteger fpid;
+@property (nonatomic, assign) NSUInteger fcid;
+@property (nonatomic, assign) NSUInteger tpid;
+@property (nonatomic, assign) NSUInteger tcid;
+
+@property (nonatomic, assign) NSUInteger cid;
+
+@property (nonatomic, assign) NSUInteger gpage;
+
 @end
 
 @implementation DeliveryViewController
@@ -57,6 +69,9 @@
     self.cityKey = [[NSMutableArray alloc] init];
     self.selectedProvince = [[NSString alloc] init];
     self.selectedCity = [[NSString alloc] init];
+    
+    self.gpage = 1;
+    self.cid = 1;
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -115,12 +130,16 @@
     [keyword.layer setCornerRadius:12.0f];
     keyword.backgroundColor = [UIColor colorWithRed:214/255.0f green:214/255.0f blue:214/255.0f alpha:1];
     
+    self.keyword = keyword;
+    
     UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(size.width - 38, 75, 20, 20)];
     UIImage *iconQuery = [UIImage imageNamed:@"query.png"];
     //[btnSearch setTitle:@"搜索" forState:UIControlStateNormal];
     [btnSearch setBackgroundImage:iconQuery forState:UIControlStateNormal];
    // btnSearch.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     //[btnSearch setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [btnSearch addTarget:self action:@selector(touchedInSearch:) forControlEvents:UIControlEventTouchUpInside];
     
     [vFilter2 addSubview:departure];
     [vFilter2 addSubview:destination];
@@ -148,12 +167,18 @@
     
     [segmentedControl addTarget:self action:@selector(touchedInSegment:) forControlEvents:UIControlEventValueChanged];
     
+    
     [self.view addSubview:segmentedControl];
     
     
     tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 220, size.width, size.height-270)];
     tableview.delegate = self;
     tableview.dataSource = self;
+    
+    
+    [self.tableview addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
+    
+    [self.tableview addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
     
     [self.view addSubview:tableview];
 
@@ -188,12 +213,31 @@
     
     self.departureArea = departureArea;
     self.destinationArea = destinationArea;
+    
+    
+    
+    [self refreshingData:1 callback:^{
+        [self.tableview.header endRefreshing];
+    }];
 
     
 }
-
+-(void) touchedInSearch:(id)sender{
+    [self refreshingData:1 callback:^{
+        [self.tableview.header endRefreshing];
+    }];
+}
 -(void) touchedInSegment:(id)sender{
-    NSLog(@"%@",sender);
+    //NSLog(@"%@",sender);
+    
+    NSUInteger selectedIndex = [sender selectedSegmentIndex];
+    
+    self.cid = selectedIndex + 1;
+    
+    [self refreshingData:1 callback:^{
+        [self.tableview.header endRefreshing];
+    }];
+    
 }
 
 // tap dismiss keyboard
@@ -201,6 +245,23 @@
     [self.view endEditing:YES];
     [self.keyword resignFirstResponder];
 }
+
+- (void) headerRefreshing{
+    
+    self.gpage = 1;
+    [self refreshingData:1 callback:^{
+        [self.tableview.header endRefreshing];
+    }];
+    
+}
+
+- (void )footerRereshing{
+    
+    [self refreshingData:++self.gpage callback:^{
+        [self.tableview.footer endRefreshing];
+    }];
+}
+
 
 - (UIButton*) createButton:(id)target Selector:(SEL)selector Image:(NSString *)image Title:(NSString *) title
 {
@@ -227,11 +288,15 @@
     if([self.departureArea resignFirstResponder] == YES){
     
         self.departureArea.text = [NSString stringWithFormat:@"%@ %@", self.selectedProvince,self.selectedCity ];
+        self.fpid = self.selectedProvinceId;
+        self.fcid = self.selectedCityId;
         [self.departureArea resignFirstResponder];
     }
     
     if([self.destinationArea resignFirstResponder] == YES){
         self.destinationArea.text = [NSString stringWithFormat:@"%@ %@", self.selectedProvince,self.selectedCity ];
+        self.tpid = self.selectedProvinceId;
+        self.tcid = self.selectedCityId;
         [self.destinationArea resignFirstResponder];
     }
 
@@ -282,11 +347,13 @@
         [pickerView reloadComponent:1];
         
         self.selectedProvince = [self.province objectAtIndex:row];
+        self.selectedProvinceId = [[self.provinceKey objectAtIndex:row] integerValue];
     }
     if(component == 1){
         
          [pickerView selectRow:0 inComponent:1 animated:YES];
         self.selectedCity = [self.city objectAtIndex:row];
+        self.selectedCityId = [[self.cityKey objectAtIndex:row] integerValue];
     }
     //self.category.text = [self.items objectAtIndex:row];
    // self.cid = [[self.itemsKeys objectAtIndex:row] integerValue];
@@ -334,10 +401,15 @@
     //hud.delegate=self;
     
     NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
-    NSString *list_url = [api_url stringByAppendingString:@"GetLclDataByCid"];
-    //list_url = [list_url stringByAppendingFormat:@"?cid=%lu&page=%lu&page_size=10",(unsigned long)self.tid,(unsigned long)page];
+    NSString *list_url = [api_url stringByAppendingString:@"GetWayData"];
+    NSString *q = [[NSString alloc] init];
+    q = self.keyword.text;
+    if([q isEqual:nil])
+        q = @"";
+
+    list_url = [list_url stringByAppendingFormat:@"?cid=%lu&fpid=%lu&fcid=%lu&tpid=%lu&tcid=%lu&title=%@&page=%lu&page_size=10",self.cid,self.fpid,self.fcid,self.tpid,self.tcid,q,page];
     
-    //NSLog(@"%@",list_url);
+    NSLog(@"%@",list_url);
     //load data
     [AFNetworkTool JSONDataWithUrl:list_url success:^(id json) {
         
@@ -346,8 +418,7 @@
         //[hud removeFromSuperview];
         if([result  isEqual:@"ok"])
         {
-            
-            //NSArray *data = [[NSArray alloc] init];
+        
             if(page == 1)
             {
                 dataArray = [[json objectForKey:@"data"] mutableCopy];
@@ -357,6 +428,8 @@
                 [dataArray addObjectsFromArray:[[json objectForKey:@"data"] mutableCopy]];
                 
             }
+            
+            NSLog(@"%@",dataArray);
             
             self.statusFrames = nil;
             
