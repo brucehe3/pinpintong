@@ -158,6 +158,9 @@
     [mainView addSubview:btnLesson];
     [mainView addSubview:btnLogout];
     
+    [btnLogout addTarget:self action:@selector(logoutTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [btnChange addTarget:self action:@selector(changeTouched:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     NSArray *constraints1= [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-30-[btnFavorite(<=60)]-40-[btnPublish(<=60)]-40-[btnFeedback(<=60)]-30-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(btnFavorite,btnPublish,btnFeedback)];
     NSArray *constraints2= [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[btnFavorite(<=60)]-40-[btnScan(<=60)]-40-[btnShare(<=60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(btnFavorite,btnScan,btnShare)];
@@ -197,6 +200,33 @@
     [button setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 0.0, -20.0, 0.0)];
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     return button;
+}
+
+- (void) logoutTouched: (id)sender{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要退出此账号吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    
+    [alert show];
+}
+
+-(void) changeTouched: (id)sender{
+
+    [self presentLoginView];
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 1){
+        [BWCommon logout];
+        
+        [self presentLoginView];
+    }
+}
+
+-(void) presentLoginView{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    id mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginIdentifier"];
+    [self presentViewController:mainViewController animated:YES completion:^{}];
+
 }
 /*
 #pragma mark - Navigation

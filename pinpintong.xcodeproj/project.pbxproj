@@ -212,6 +212,8 @@
 		3227D0AF1AD9107900BEA10A /* MixPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3227D0AE1AD9107900BEA10A /* MixPublishViewController.m */; };
 		323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */; };
 		323C3FC31AB5CE57007A7DE1 /* MixUITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 323C3FC21AB5CE57007A7DE1 /* MixUITableView.m */; };
+		3246F2BA1AE0E0FB0071A8AD /* DiscoveryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246F2B91AE0E0FB0071A8AD /* DiscoveryTableViewCell.m */; };
+		3246F2BF1AE0F12E0071A8AD /* MixUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3246F2BE1AE0F12E0071A8AD /* MixUIView.m */; };
 		324CE53E1AB46B3C000013FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE53D1AB46B3C000013FC /* main.m */; };
 		324CE5411AB46B3C000013FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5401AB46B3C000013FC /* AppDelegate.m */; };
 		324CE5441AB46B3C000013FC /* MixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 324CE5431AB46B3C000013FC /* MixViewController.m */; };
@@ -479,6 +481,10 @@
 		323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MixTableViewController.h; path = Mix/MixTableViewController.h; sourceTree = "<group>"; };
 		323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MixTableViewController.m; path = Mix/MixTableViewController.m; sourceTree = "<group>"; };
 		323C3FC21AB5CE57007A7DE1 /* MixUITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixUITableView.m; sourceTree = "<group>"; };
+		3246F2B81AE0E0FB0071A8AD /* DiscoveryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTableViewCell.h; sourceTree = "<group>"; };
+		3246F2B91AE0E0FB0071A8AD /* DiscoveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTableViewCell.m; sourceTree = "<group>"; };
+		3246F2BD1AE0F12E0071A8AD /* MixUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixUIView.h; sourceTree = "<group>"; };
+		3246F2BE1AE0F12E0071A8AD /* MixUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixUIView.m; sourceTree = "<group>"; };
 		324CE5381AB46B3C000013FC /* pinpintong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinpintong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		324CE53C1AB46B3C000013FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324CE53D1AB46B3C000013FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -816,6 +822,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3246F2BB1AE0ED150071A8AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				324CE5451AB46B3C000013FC /* deliveryViewController.h */,
+				324CE5461AB46B3C000013FC /* deliveryViewController.m */,
+				32BAB5FA1AD579780029FED4 /* DiscoveryViewController.h */,
+				32BAB5FB1AD579780029FED4 /* DiscoveryViewController.m */,
+				324CE5421AB46B3C000013FC /* MixViewController.h */,
+				324CE5431AB46B3C000013FC /* MixViewController.m */,
+				325B2CC01AD2D49A00DA000F /* MoreViewController.h */,
+				325B2CC11AD2D49A00DA000F /* MoreViewController.m */,
+				32609F331ADE664B00D11B8B /* UserInfoTableViewController.h */,
+				32609F341ADE664B00D11B8B /* UserInfoTableViewController.m */,
+				32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */,
+				32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */,
+				325B2C711AD1806000DA000F /* RegisterViewController.h */,
+				323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */,
+				32839D4C1AD03F2A003C67D3 /* MixDetailViewController.h */,
+				32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */,
+				3227D0AD1AD9107900BEA10A /* MixPublishViewController.h */,
+				3227D0AE1AD9107900BEA10A /* MixPublishViewController.m */,
+				323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */,
+				325B2C721AD1806000DA000F /* RegisterViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3246F2BC1AE0ED290071A8AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32FF10BB1AD0094100EB405C /* MixTableViewCell.h */,
+				32FF10BC1AD0094100EB405C /* MixTableViewCell.m */,
+				32609F301ADE5F7800D11B8B /* MoreTableViewCell.h */,
+				32609F311ADE5F7800D11B8B /* MoreTableViewCell.m */,
+				3246F2B81AE0E0FB0071A8AD /* DiscoveryTableViewCell.h */,
+				3246F2B91AE0E0FB0071A8AD /* DiscoveryTableViewCell.m */,
+				32FF10BE1AD0187F00EB405C /* MixTableViewFrame.h */,
+				32FF10BF1AD0189700EB405C /* MixTableViewFrame.m */,
+				325B2CC31AD426AD00DA000F /* BwUIButton.h */,
+				321AFF491ADB671B00E9080F /* UIPlaceholderTextView.h */,
+				321AFF4A1ADB671B00E9080F /* UIPlaceholderTextView.m */,
+				325B2CC41AD426AE00DA000F /* BwUIButton.m */,
+				3246F2BD1AE0F12E0071A8AD /* MixUIView.h */,
+				3246F2BE1AE0F12E0071A8AD /* MixUIView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		324CE52F1AB46B3C000013FC = {
 			isa = PBXGroup;
 			children = (
@@ -838,45 +892,16 @@
 		324CE53A1AB46B3C000013FC /* pinpintong */ = {
 			isa = PBXGroup;
 			children = (
-				324CE5681AB46E8B000013FC /* AFNetworking */,
+				3246F2BC1AE0ED290071A8AD /* View */,
+				3246F2BB1AE0ED150071A8AD /* Controller */,
 				324CE5641AB46E78000013FC /* tool */,
 				324CE53F1AB46B3C000013FC /* AppDelegate.h */,
 				324CE5401AB46B3C000013FC /* AppDelegate.m */,
-				324CE5421AB46B3C000013FC /* MixViewController.h */,
-				324CE5431AB46B3C000013FC /* MixViewController.m */,
-				32FF10BB1AD0094100EB405C /* MixTableViewCell.h */,
-				32FF10BC1AD0094100EB405C /* MixTableViewCell.m */,
-				324CE5451AB46B3C000013FC /* deliveryViewController.h */,
-				32BAB5FA1AD579780029FED4 /* DiscoveryViewController.h */,
-				32BAB5FB1AD579780029FED4 /* DiscoveryViewController.m */,
-				324CE5461AB46B3C000013FC /* deliveryViewController.m */,
 				324CE5481AB46B3C000013FC /* Main.storyboard */,
-				325B2CC01AD2D49A00DA000F /* MoreViewController.h */,
-				325B2CC11AD2D49A00DA000F /* MoreViewController.m */,
-				32609F331ADE664B00D11B8B /* UserInfoTableViewController.h */,
-				32609F341ADE664B00D11B8B /* UserInfoTableViewController.m */,
-				325B2CC31AD426AD00DA000F /* BwUIButton.h */,
-				325B2CC41AD426AE00DA000F /* BwUIButton.m */,
-				32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */,
-				32609F301ADE5F7800D11B8B /* MoreTableViewCell.h */,
-				32609F311ADE5F7800D11B8B /* MoreTableViewCell.m */,
-				32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */,
-				325B2C711AD1806000DA000F /* RegisterViewController.h */,
-				325B2C721AD1806000DA000F /* RegisterViewController.m */,
 				324CE54B1AB46B3C000013FC /* Images.xcassets */,
 				3221138A1AB55B3100244EDE /* images */,
 				324CE54D1AB46B3C000013FC /* LaunchScreen.xib */,
 				324CE53B1AB46B3C000013FC /* Supporting Files */,
-				323C3FB61AB49A46007A7DE1 /* MixTableViewController.h */,
-				323C3FB71AB49A46007A7DE1 /* MixTableViewController.m */,
-				32FF10BE1AD0187F00EB405C /* MixTableViewFrame.h */,
-				32FF10BF1AD0189700EB405C /* MixTableViewFrame.m */,
-				32839D4C1AD03F2A003C67D3 /* MixDetailViewController.h */,
-				3227D0AD1AD9107900BEA10A /* MixPublishViewController.h */,
-				3227D0AE1AD9107900BEA10A /* MixPublishViewController.m */,
-				321AFF491ADB671B00E9080F /* UIPlaceholderTextView.h */,
-				321AFF4A1ADB671B00E9080F /* UIPlaceholderTextView.m */,
-				32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */,
 				32839D4F1AD04A33003C67D3 /* DetailDelegate.h */,
 			);
 			path = pinpintong;
@@ -912,6 +937,7 @@
 		324CE5641AB46E78000013FC /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				324CE5681AB46E8B000013FC /* AFNetworking */,
 				325B2C9C1AD2B80700DA000F /* MJRefresh.bundle */,
 				325B2C9D1AD2B80700DA000F /* MJRefresh.h */,
 				325B2C9E1AD2B80700DA000F /* MJRefreshComponent.h */,
@@ -970,7 +996,8 @@
 				324CE57A1AB46E8B000013FC /* AFURLSessionManager.h */,
 				324CE57B1AB46E8B000013FC /* AFURLSessionManager.m */,
 			);
-			path = AFNetworking;
+			name = AFNetworking;
+			path = ../AFNetworking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1285,6 +1312,7 @@
 				32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */,
 				324CE5841AB46E8B000013FC /* AFURLSessionManager.m in Sources */,
 				324CE5821AB46E8B000013FC /* AFURLRequestSerialization.m in Sources */,
+				3246F2BA1AE0E0FB0071A8AD /* DiscoveryTableViewCell.m in Sources */,
 				325B2CC51AD426AE00DA000F /* BwUIButton.m in Sources */,
 				321AFF4B1ADB671B00E9080F /* UIPlaceholderTextView.m in Sources */,
 				325B2C761AD1AB9000DA000F /* MBProgressHUD.m in Sources */,
@@ -1302,6 +1330,7 @@
 				324CE5411AB46B3C000013FC /* AppDelegate.m in Sources */,
 				324CE5441AB46B3C000013FC /* MixViewController.m in Sources */,
 				32839D4E1AD03F2A003C67D3 /* MixDetailViewController.m in Sources */,
+				3246F2BF1AE0F12E0071A8AD /* MixUIView.m in Sources */,
 				324CE57D1AB46E8B000013FC /* AFHTTPRequestOperationManager.m in Sources */,
 				324CE5801AB46E8B000013FC /* AFSecurityPolicy.m in Sources */,
 				325B2CB91AD2B80700DA000F /* MJRefreshGifHeader.m in Sources */,

@@ -101,15 +101,8 @@
     tableview.delegate = self;
     tableview.dataSource = self;
     
-    //self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, size.width, size.height-150)];
-    //self.tableview.scrollEnabled = YES;
-    //self.tableview.bounces = YES;
-    //self.tableview.pagingEnabled = YES;
-    //self.tableview.delegate = self;
-    //self.tableview.userInteractionEnabled = YES;
-    //self.tableview.showsHorizontalScrollIndicator = NO;
-    //self.tableview.contentSize =CGSizeMake(size.width, size.height);
     [[self view]addSubview:tableview];
+    
     
 
     [self.tableview addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
@@ -266,9 +259,7 @@
     MixTableViewCell *cell = [MixTableViewCell cellWithTableView:tableview];
     
     cell.viewFrame = self.statusFrames[indexPath.row];
-    
-    //cell.textLabel.text = [[dataArray objectAtIndex:[indexPath row]] objectForKey:@"content"];
-    //cell.textLabel.text = [dataArray objectAtIndex:[indexPathrow]];  //通过 [indexPath row] 遍历数组
+
     
     return cell;
 }

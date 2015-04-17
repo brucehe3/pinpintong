@@ -23,6 +23,7 @@
 +(id) getUserInfo:(NSString *) key;
 
 +(BOOL) isLoggedIn;
++(void) logout;
 
 + (CGSize)sizeWithString:(NSString *)str font:(UIFont *)font maxSize:(CGSize)maxSize;
 

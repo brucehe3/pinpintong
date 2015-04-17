@@ -11,7 +11,8 @@
 @interface MoreViewController : UIViewController
 <
 UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+UIAlertViewDelegate
 >
 
 

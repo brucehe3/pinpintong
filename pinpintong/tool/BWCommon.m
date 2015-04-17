@@ -34,6 +34,14 @@
     return [udata objectForKey:key];
 }
 
++(void) logout{
+    NSUserDefaults *udata = [NSUserDefaults standardUserDefaults];
+    
+    [udata removeObjectForKey:@"username"];
+    [udata removeObjectForKey:@"uid"];
+    [udata synchronize];
+}
+
 +(BOOL) isLoggedIn{
     
     return [self getUserInfo:@"username"] != nil;

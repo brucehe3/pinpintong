@@ -24,13 +24,12 @@
     MKHorizMenu *_horizMenu;
     NSMutableArray *_items;
     NSMutableArray *_itemsKeys;
-    UITableView *tableview;
+
     
     NSMutableArray *dataArray; //创建个数组来放我们的数据
     
     //UILabel *_selectionItemLabel;
-        
-    __unsafe_unretained id<DetailDelegate> delegate;
+
 }
 
 @property (nonatomic,retain) IBOutlet MKHorizMenu *horizMenu;

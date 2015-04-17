@@ -14,6 +14,7 @@
 @interface UserInfoTableViewController ()
 
 @property (nonatomic, retain) NSMutableDictionary *userinfo;
+@property (nonatomic, retain) NSMutableDictionary *userinfoLabel;
 @property (nonatomic, retain) NSArray *keys;
 
 @end
@@ -28,6 +29,28 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationController.navigationBar.barStyle = UIStatusBarStyleDefault;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:214/255.0f green:214/255.0f blue:214/255.0f alpha:1];
+    
+    
+    
+    
+    self.navigationItem.title = @"用户信息";
+ 
+    //init label name
+    self.userinfoLabel = [[NSMutableDictionary alloc] init];
+    
+    [self.userinfoLabel setValue:@"用户名" forKey:@"username"];
+    [self.userinfoLabel setValue:@"地址" forKey:@"address"];
+    [self.userinfoLabel setValue:@"QQ" forKey:@"qq"];
+    [self.userinfoLabel setValue:@"公司名称" forKey:@"company"];
+    [self.userinfoLabel setValue:@"手机号" forKey:@"mobile"];
+    
+    
+    self.keys = [[NSArray alloc] initWithObjects:@"username",@"mobile",@"qq",@"address",@"company", nil];
     
     [self loadData:[[BWCommon getUserInfo:@"uid"] integerValue]];
 
@@ -53,7 +76,7 @@
             self.userinfo = [[NSMutableDictionary alloc] init];
             self.userinfo = [json objectForKey:@"userinfo"];
             
-            self.keys = [self.userinfo allKeys];
+            //NSLog(@"%@",self.userinfo);
             
             [self.tableView reloadData];
             //NSLog(@"%@",[json objectForKey:@"userinfo"]);
@@ -84,7 +107,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self.userinfo count];
+    return [self.userinfoLabel count];
 }
 
 
@@ -96,7 +119,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
     
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     }
     
@@ -104,17 +128,43 @@
     
     NSString *key = [self.keys objectAtIndex:[indexPath indexAtPosition:1]];
     
+    //NSLog(@"%@",[self.userinfo objectForKey:key]);
+    
+    cell.textLabel.text = [self.userinfoLabel objectForKey:key];
+    cell.detailTextLabel.text = [self.userinfo objectForKey:key];
+    
     
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 10;
+    return 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
+    return 20;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* myView = [[UIView alloc] init];
+    myView.backgroundColor = [UIColor colorWithRed:214/255.0f green:214/255.0f blue:214/255.0f alpha:1];
+    return myView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSUInteger detail_id;
+    //detail_id = [[[dataArray objectAtIndex:[indexPath row]] objectForKey:@"id"] integerValue];
+    
+    /*UserInfoTableViewController *userInfoTableViewController = [[UserInfoTableViewController alloc] init];
+    userInfoTableViewController.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:userInfoTableViewController animated:YES];
+    */
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 
