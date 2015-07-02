@@ -9,6 +9,7 @@
 #import "UserInfoTableViewController.h"
 #import "BWCommon.h"
 #import "AFNetworkTool.h"
+#import "MoreEditTableViewController.h"
 
 
 @interface UserInfoTableViewController ()
@@ -155,6 +156,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSString *key = [self.keys objectAtIndex:[indexPath indexAtPosition:1]];
+    
+    
+    MoreEditTableViewController *moreEditTableViewController = [[MoreEditTableViewController alloc] init];
+    
+    //moreEditTableViewController.hidesBottomBarWhenPushed = YES;
+    
+    
+    
+    [self presentViewController:moreEditTableViewController animated:YES completion:^(void){
+        
+    }];
+    
     //NSUInteger detail_id;
     //detail_id = [[[dataArray objectAtIndex:[indexPath row]] objectForKey:@"id"] integerValue];
     
@@ -163,7 +178,11 @@
     
     [self.navigationController pushViewController:userInfoTableViewController animated:YES];
     */
+
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self.delegate setValue:key];
     
 }
 

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoDelegate.h"
 
 @interface UserInfoTableViewController : UITableViewController
 
+@property (nonatomic,assign) id<UserInfoDelegate> delegate;
 @end

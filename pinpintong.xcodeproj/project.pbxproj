@@ -251,6 +251,7 @@
 		32609F321ADE5F7800D11B8B /* MoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32609F311ADE5F7800D11B8B /* MoreTableViewCell.m */; };
 		32609F351ADE664B00D11B8B /* UserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32609F341ADE664B00D11B8B /* UserInfoTableViewController.m */; };
 		32839D4E1AD03F2A003C67D3 /* MixDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */; };
+		329686F61AE8EC2400DD5632 /* MoreEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329686F51AE8EC2400DD5632 /* MoreEditTableViewController.m */; };
 		32AAB4AB1AD15C4600E0E1C7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */; };
 		32B9093D1ADD1C91009CE667 /* query.png in Resources */ = {isa = PBXBuildFile; fileRef = 32B9093C1ADD1C91009CE667 /* query.png */; };
 		32BAB5FC1AD579780029FED4 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAB5FB1AD579780029FED4 /* DiscoveryViewController.m */; };
@@ -485,6 +486,8 @@
 		3246F2B91AE0E0FB0071A8AD /* DiscoveryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTableViewCell.m; sourceTree = "<group>"; };
 		3246F2BD1AE0F12E0071A8AD /* MixUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixUIView.h; sourceTree = "<group>"; };
 		3246F2BE1AE0F12E0071A8AD /* MixUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixUIView.m; sourceTree = "<group>"; };
+		3247CFE91AED28BF00D7B4B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		3247CFEA1AED28BF00D7B4B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		324CE5381AB46B3C000013FC /* pinpintong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pinpintong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		324CE53C1AB46B3C000013FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324CE53D1AB46B3C000013FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -560,6 +563,9 @@
 		32839D4C1AD03F2A003C67D3 /* MixDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixDetailViewController.h; sourceTree = "<group>"; };
 		32839D4D1AD03F2A003C67D3 /* MixDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixDetailViewController.m; sourceTree = "<group>"; };
 		32839D4F1AD04A33003C67D3 /* DetailDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDelegate.h; sourceTree = "<group>"; };
+		329686F41AE8EC2400DD5632 /* MoreEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreEditTableViewController.h; sourceTree = "<group>"; };
+		329686F51AE8EC2400DD5632 /* MoreEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreEditTableViewController.m; sourceTree = "<group>"; };
+		329686F71AE8ED7E00DD5632 /* UserInfoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoDelegate.h; sourceTree = "<group>"; };
 		32AAB4A91AD15C4600E0E1C7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		32AAB4AA1AD15C4600E0E1C7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		32B9093C1ADD1C91009CE667 /* query.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = query.png; sourceTree = "<group>"; };
@@ -831,6 +837,8 @@
 				32BAB5FB1AD579780029FED4 /* DiscoveryViewController.m */,
 				324CE5421AB46B3C000013FC /* MixViewController.h */,
 				324CE5431AB46B3C000013FC /* MixViewController.m */,
+				329686F41AE8EC2400DD5632 /* MoreEditTableViewController.h */,
+				329686F51AE8EC2400DD5632 /* MoreEditTableViewController.m */,
 				325B2CC01AD2D49A00DA000F /* MoreViewController.h */,
 				325B2CC11AD2D49A00DA000F /* MoreViewController.m */,
 				32609F331ADE664B00D11B8B /* UserInfoTableViewController.h */,
@@ -903,6 +911,7 @@
 				324CE54D1AB46B3C000013FC /* LaunchScreen.xib */,
 				324CE53B1AB46B3C000013FC /* Supporting Files */,
 				32839D4F1AD04A33003C67D3 /* DetailDelegate.h */,
+				329686F71AE8ED7E00DD5632 /* UserInfoDelegate.h */,
 			);
 			path = pinpintong;
 			sourceTree = "<group>";
@@ -1049,6 +1058,7 @@
 				TargetAttributes = {
 					324CE5371AB46B3C000013FC = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = T5U7VTGQMY;
 					};
 					324CE5531AB46B3C000013FC = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -1319,6 +1329,7 @@
 				325B2CBE1AD2B80700DA000F /* UIScrollView+MJRefresh.m in Sources */,
 				324CE5471AB46B3C000013FC /* deliveryViewController.m in Sources */,
 				32FF10C01AD0189700EB405C /* MixTableViewFrame.m in Sources */,
+				329686F61AE8EC2400DD5632 /* MoreEditTableViewController.m in Sources */,
 				325B2CC21AD2D49A00DA000F /* MoreViewController.m in Sources */,
 				324CE5831AB46E8B000013FC /* AFURLResponseSerialization.m in Sources */,
 				323C3FB81AB49A46007A7DE1 /* MixTableViewController.m in Sources */,
@@ -1371,6 +1382,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				324CE5491AB46B3C000013FC /* Base */,
+				3247CFE91AED28BF00D7B4B1 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1379,6 +1391,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				324CE54E1AB46B3C000013FC /* Base */,
+				3247CFEA1AED28BF00D7B4B1 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -1467,7 +1480,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = pinpintong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1478,7 +1493,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = pinpintong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

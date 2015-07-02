@@ -18,6 +18,7 @@
     MKHorizMenuDelegate,
     UITableViewDataSource,
     UITableViewDelegate,
+    UIAlertViewDelegate,
     MBProgressHUDDelegate> {
 
     MBProgressHUD *hud;

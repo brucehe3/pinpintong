@@ -127,10 +127,10 @@
         <!--Discovery View Controller-->
         <scene sceneID="HHn-ig-G3r">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VgW-9H-xMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="VGz-Sh-QS2" customClass="DiscoveryViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Nqz-sk-R4T"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VgW-9H-xMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1061" y="80"/>
         </scene>

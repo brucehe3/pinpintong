@@ -1,0 +1,18 @@
+
+/* Class = "UITabBarItem"; title = "更多"; ObjectID = "9G1-as-T19"; */
+"9G1-as-T19.title" = "更多";
+
+/* Class = "UINavigationItem"; title = "拼箱"; ObjectID = "Ep1-n4-BOo"; */
+"Ep1-n4-BOo.title" = "拼箱";
+
+/* Class = "UINavigationItem"; title = "配货"; ObjectID = "FrK-2T-32f"; */
+"FrK-2T-32f.title" = "配货";
+
+/* Class = "UITabBarItem"; title = "发现"; ObjectID = "TSu-Qv-e1Z"; */
+"TSu-Qv-e1Z.title" = "发现";
+
+/* Class = "UITabBarItem"; title = "配货"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "配货";
+
+/* Class = "UITabBarItem"; title = "拼箱"; ObjectID = "syE-4e-5dm"; */
+"syE-4e-5dm.title" = "拼箱";

@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSArray *statusFrames;
 @property (nonatomic, assign) NSUInteger tid;
 @property (nonatomic,assign) NSUInteger gpage;
+@property (nonatomic, assign) NSString *updateLink;
 
 @end
 
@@ -44,6 +45,7 @@
     
     [[self navigationItem] setRightBarButtonItem:barLine];
     
+    [self checkVersion];
 
     
     NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
@@ -112,6 +114,39 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) checkVersion{
+    
+    NSString *api_url = [BWCommon getBaseInfo:@"api_url"];
+    
+    NSString *url =  [api_url stringByAppendingString:@"index"];
+    
+    NSDictionary *postData = @{@"os":@"ios",@"version":@"1.0"};
+    
+    [AFNetworkTool postJSONWithUrl:url parameters:postData success:^(id responseObject) {
+        
+        
+        NSUInteger update = [[responseObject objectForKey:@"update"] integerValue];
+        
+        if (update > 0){
+            self.updateLink = [responseObject objectForKey:@"update_link"];
+            NSString *updateInfo = [responseObject objectForKey:@"update_info"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"系统提示" message:updateInfo delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            
+            [alert show];
+        }
+    } fail:^{
+        NSLog(@"请求失败");
+    }];
+
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 1){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.updateLink]];
+    }
 }
 
 
